@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+  {% include head.html %}
+
+  <body class="layout-{{ page.layout }} {{ page.body-class }}">
+
+	{% include header.html %}
+
+  <main id="main" class="layout__main container-fluid py-3 py-md-4 py-lg-5">
+  	<div class="row">
+      
+      {{ content }}
+      
+    </div>
+  </main>
+
+  {% include footer.html %}
+
+  </body>
+</html>
