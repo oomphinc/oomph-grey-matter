@@ -1,0 +1,39 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// See: https://jekyllrb.com/docs/assets/
+// The load path '_sass' is assumed and inserted here for every include
+// To change the load path, go to _config.yml and change the value of 'sass_dir'
+
+
+// Reset variables
+// Bootstrap 4 requires that any customized variables are defined before Bootstrap is loaded.
+
+// Variables available are located here: _sass/bootstrap/scss/_variables.scss
+
+
+
+// #Bootstrap
+// https://getbootstrap.com/docs/4.0/getting-started/theming/
+
+// Include only the parts we need
+// Required
+//@import "bootstrap/scss/functions";
+//@import "bootstrap/scss/variables";
+//@import "bootstrap/scss/mixins";
+
+// Optional
+//@import "bootstrap/scss/reboot";
+//@import "bootstrap/scss/type";
+//@import "bootstrap/scss/images";
+//@import "bootstrap/scss/code";
+//@import "bootstrap/scss/grid";
+
+
+// Or include the whole thing
+@import 'bootstrap/scss/bootstrap';
+
+
+// Finally, include any custom stuff that IS NOT an override
+@import 'project';
