@@ -1,0 +1,96 @@
+//<main id="main" class="content layout--content">
+//	<div class="layout--container">
+//	  <header class="content--header">
+//  		<h1 class="content--title giga">{{ page.title }}</h1>
+//  	</header>
+//  	<article class="content--main">
+.content {
+
+  &__header {
+    padding: $vert-line-height 0;
+  }
+
+  &__title {}
+
+  &__main {
+    padding-bottom: $vert-line-height;
+  }
+
+  @include media($medium-up) {
+
+    &__main {
+      padding-bottom: $vert-line-height*2;
+    }
+  }
+}
+
+
+// Add link icons to Headings with IDs
+// The anchors inside are added via JS, so, if no JS... no icons
+h1[id],
+h2[id],
+h3[id],
+h4[id] {
+
+  a {
+    color: inherit;
+    display: inline-block;
+    position: relative;
+
+    &:after {
+      @include icon-font('\f0c1');
+      color: palette(mono, 25) !important;
+      font-size: 1rem !important;
+      margin-left: .5em;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+
+// A few special rules for Refills on the Sample page
+// for the sample Pattern Library
+.patternlib {
+
+  .cards {
+    margin: 0 -1em;
+  }
+
+  .bullets {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &--sample {
+    @include clearfix;
+    clear: both;
+    border-bottom: 1px solid $color-borders;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+
+    &--title {
+      font-weight: $font-weight-bold;
+    }
+
+    &--pattern {
+      float: left;
+      width: 67%;
+    }
+
+    &--code {
+      float: left;
+      padding-left: 1rem;
+      width: 33%;
+      
+      textarea {
+        color: $color-code;
+        font-family: $font-mono;
+        font-size: 87.5%;
+        min-height: 12rem;
+      }
+    }
+  }
+}
