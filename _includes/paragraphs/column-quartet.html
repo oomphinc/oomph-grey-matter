@@ -3,7 +3,7 @@
   <h2 class="text-primary px-3">Row with four columns</h2>
   
   <div class="paragraph paragraph__columns container-fluid">
-    <div class="column--4 column-size--quarter row">
+    <div class="column--4 column-size--quarter row align-items-center">
       
       <div class="column__item col-md p-2 p-lg-3 bg-light">
         <div class="paragraph__text">
@@ -48,7 +48,7 @@
   <pre class="px-3">
     <code>
 &lt;div class=&quot;paragraph paragraph__columns container-fluid&quot;&gt;
-  &lt;div class=&quot;column--4 column-size--quarter row&quot;&gt;
+  &lt;div class=&quot;column--4 column-size--quarter row align-items-center&quot;&gt;
     &lt;div class=&quot;column__item col-md p-2 p-lg-3&quot;&gt;
       &lt;div class=&quot;paragraph__text&quot;&gt;
         &lt;div class=&quot;paragraph__text__inner&quot;&gt;
@@ -80,8 +80,15 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-// Options:
-// [none]
+// Options for vertical alignment for ALL columns:
+// .align-items-start (top align all columns along horizontal axis)
+// .align-items-center (center align all columns along horizontal axis)
+// .align-items-end (end align all columns along horizontal axis)
+
+// Options for ANY individual column (overrides the options above):
+// .align-self-start
+// .align-self-center
+// .align-self-end
     </code>
   </pre>
 </div>
