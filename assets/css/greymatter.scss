@@ -7,11 +7,18 @@
 // To change the load path, go to _config.yml and change the value of 'sass_dir'
 
 
+// Our functions and helpers
+@import 'functions';
+@import 'mixins/fluid-units';
+@import 'mixins/fluid-typography';
+@import 'mixins/maintain-ratio';
+
+
 // Reset variables
 // Bootstrap 4 requires that any customized variables are defined before Bootstrap is loaded.
 
 // Variables available are located here: _sass/bootstrap/scss/_variables.scss
-
+$line-height-base: 1.75 !default;
 
 
 // #Bootstrap
@@ -36,4 +43,7 @@
 
 
 // Finally, include any custom stuff that IS NOT an override
+@import 'responsive-type';
 @import 'project';
+@import 'paragraphs';
+@import 'viewport-size';
