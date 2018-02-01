@@ -1,0 +1,102 @@
+<div class="sample py-2 py-md-3 py-lg-4 border-top border-bottom">
+  
+  <h2 class="text-primary px-3">Row with three columns & three different content components</h2>
+  
+  <div class="paragraph paragraph__columns container-fluid">
+    <div class="column--3 column-size--third row">
+      
+      {% comment %}Video component{% endcomment %}
+      <div class="column__item paragraph__vid col-md">
+        <div class="paragraph__vid__inner embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7E5laVncg4I?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      {% comment %}Text component{% endcomment %}
+      <div class="column__item col-md">
+        <div class="paragraph__text">
+          <div class="paragraph__text__inner">
+            <h2>2017 Best Practices Prize from the FAST Network</h2>
+            <p>Recognizing Blue Plan innovations that improve quality and value for members in government business</p>
+          </div>
+        </div>
+      </div>
+      
+      {% comment %}Image component{% endcomment %}
+      <div class="column__item paragraph__img col-md">
+        <div class="paragraph__img__inner">
+          <img class="paragraph__row__bgimage" src="https://source.unsplash.com/collection/1128928/1600x900" alt="">
+        </div>
+      </div>
+    
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph__columns container-fluid border border-success">
+    <div class="column--3 column-size--third column-size--half-left row">
+      <div class="column__item col-md-6">
+        <p class="bg-warning">.column-size--half-left</p>
+      </div>
+      <div class="column__item col-sm-6 col-md-3">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+      <div class="column__item col-sm-6 col-md-3">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph__columns container-fluid border border-success">
+    <div class="column--3 column-size--third column-size--half-center row">
+      <div class="column__item col-md-3">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+      <div class="column__item col-md-6">
+        <p class="bg-warning">.column-size--half-center</p>
+      </div>
+      <div class="column__item col-md-3">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph__columns container-fluid border border-success">
+    <div class="column--3 column-size--third column-size--half-right row">
+      <div class="column__item col-sm-6 col-md-3">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+      <div class="column__item col-sm-6 col-md-3">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+      <div class="column__item col-md-6">
+        <p class="bg-warning">.column-size--half-right</p>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+<div class="sample__code alert-success">
+  <pre class="px-3">
+    <code>
+&lt;div class=&quot;paragraph paragraph__columns container-fluid border border-success&quot;&gt;
+  &lt;div class=&quot;column--3 column-size--third column-size--half-left row&quot;&gt;
+    &lt;div class=&quot;column__item col-md-6&quot;&gt;
+      &lt;p class=&quot;bg-warning&quot;&gt;.column-size--half-left&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column__item col-sm-6 col-md-3&quot;&gt;
+      &lt;p class=&quot;bg-warning&quot;&gt;&amp;nbsp;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column__item col-sm-6 col-md-3&quot;&gt;
+      &lt;p class=&quot;bg-warning&quot;&gt;&amp;nbsp;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+// Options:
+// .column-size--half-left
+// .column-size--half-center
+// .column-size--half-right
+    </code>
+  </pre>
+</div>
