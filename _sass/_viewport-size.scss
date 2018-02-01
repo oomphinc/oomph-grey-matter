@@ -4,9 +4,9 @@
 // For development only!!
 
 #size {
-  background-color: palette(mono, 90);
-  color: palette(mono, white);
-  font-size: em(14);
+  background-color: $info;
+  color: $white;
+  font-size: 14px;
   padding: .1875em .625em;
   position: fixed;
     right: 0; bottom: 0;
