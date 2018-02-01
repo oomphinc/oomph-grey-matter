@@ -1,0 +1,124 @@
+.bg-light {
+  background-color: $gray-200 !important;
+}
+
+.sample {
+  
+  &__code pre code {
+    font-size: 87.5%;
+  }
+}
+
+//<div class="sample py-2 py-md-3 py-lg-4">
+//  <div class="paragraph paragraph--single paragraph--bg-img align-content--left align-content--bottom">
+//    <img class="paragraph__row__bgimage" src="https://source.unsplash.com/collection/1128928/1600x900" alt="">
+//    <div class="paragraph__content p-3 p-lg-4 p-xl-5">
+//      <div class="paragraph__content__inner">
+//        <h2 class="display-4">Single Column row Title that is a little long to test how the text wraps around</h2>
+//        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+//        <p><button type="button" class="btn btn-secondary">Call to Action</button></p>
+//      </div>
+//    </div>
+//  </div>
+//</div>
+
+.paragraph {
+  
+  &--single {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  &__text {}
+
+
+  &--bg-img#{&}--single &__text {
+
+    // 1. Medium, position the content over the image
+    // 2. Flip the colors to white
+    // 3. Add a background color gradient to mask the image and ensure the text is legible
+    //    Create variations on the positional options
+    @include media-breakpoint-up(sm) {
+      // 1.
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      // 2.
+      color: $white;
+    }
+  }
+  
+  // 3.
+  @include media-breakpoint-up(sm) {
+
+    // Horizontal positioning
+    // Gradients only added only when class .paragraph--bg-img present
+    &--bg-img.align-content--left &__text {
+      background-image: linear-gradient(left, rgba(#000, .67) 0%,rgba(#000, 0) 85%);
+    }
+
+    .align-content--left &__text__inner {
+      padding-right: 33%;
+    }
+
+    &--bg-img.align-content--right &__text {
+      background-image: linear-gradient(left, rgba(#000, 0) 15%,rgba(#000, .67) 100%);
+    }
+
+    .align-content--right &__text__inner {
+      padding-left: 33%;
+    }
+
+    &--bg-img.align-content--center &__text {
+      background-image: radial-gradient(ellipse at center, rgba(#000, .75) 0%,rgba(#000, 0) 100%);
+    }
+
+    // Vertical positioning
+    &--bg-img.align-content--top &__text__inner {
+      // default
+    }
+
+    &--bg-img.align-content--middle &__text__inner {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &--bg-img.align-content--bottom &__text__inner {
+      position: absolute;
+      bottom: $spacer;
+    }
+  } // end media-breakpoint-up(sm)
+  
+  @include media-breakpoint-up(md) {
+
+    .align-content--center &__text__inner {
+      margin: 0 15%;
+      max-width: 800px;
+    }
+  }
+  
+  @include media-breakpoint-up(lg) {
+
+    &--bg-img.align-content--bottom &__text__inner {
+      bottom: ($spacer * 1.5);
+    }
+    
+    .align-content--center &__text__inner {
+      margin: 0 20%;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+
+    &--bg-img.align-content--bottom &__text__inner {
+      bottom: ($spacer * 3);
+    }
+  }
+}
+
+
