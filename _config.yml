@@ -6,7 +6,7 @@ highlighter: pygments
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
-baseurl: '/grey-matter/'
+baseurl: '/bcbsri/round1/'
 port: 4040
 url: //jhogue.dev.oomphcloud.com
 twitter_handle: oomphinc
