@@ -18,7 +18,8 @@
 // Bootstrap 4 requires that any customized variables are defined before Bootstrap is loaded.
 
 // Variables available are located here: _sass/bootstrap/scss/_variables.scss
-$line-height-base: 1.75 !default;
+$font-family-serif: Georgia, 'Times New Roman', serif;
+$line-height-base: 1.625;  // golden ratio number would be 1.618
 
 
 // #Bootstrap
@@ -44,6 +45,7 @@ $line-height-base: 1.75 !default;
 
 // Finally, include any custom stuff that IS NOT an override
 @import 'responsive-type';
+@import 'vertical-rhythm';
 @import 'project';
 @import 'paragraphs';
 @import 'viewport-size';

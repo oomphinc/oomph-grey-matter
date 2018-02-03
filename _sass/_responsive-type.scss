@@ -93,26 +93,3 @@ h6,
 .lead {
   @include one-element-size(h4);
 }
-
-
-// Resetting margins for vertical rhythm
-// Using EMs instead of REM to allow for them to flex as type scale changes
-// Elements pulled out of BS4 reboot, whenever `margin-bottom: *em` was used
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-bottom: 1em;
-}
-
-p,
-ul,
-ol,
-dl,
-pre,
-figure,
-address {
-  margin-bottom: 1em;
-}
