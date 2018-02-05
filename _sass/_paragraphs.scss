@@ -1,5 +1,91 @@
+body {
+  // For Scrollspy
+  position: relative;
+}
+
 .bg-light {
   background-color: $gray-200 !important;
+}
+
+.js-waypoint-nav {
+  padding-top: 63px;
+}
+
+#navbar.nav-pills .nav-link {
+  //transition: all 250ms ease;
+}
+
+#navbar.nav-pills .nav-link.active {
+  background-color: transparent;
+  outline: 1px solid white;
+  //z-index: 1;
+}
+
+// Handling images or other media in body content
+.in-content-float-left {
+  float: left;
+  margin: 0 $spacer 0 0;
+  max-width: 45%;
+}
+
+.in-content-float-right {
+  float: right;
+  margin: 0 0 0 $spacer;
+  max-width: 45%;
+}
+
+.in-content-float-none {
+  margin: 0 auto;
+}
+
+@include media-breakpoint-up(md) {
+
+  .in-content-float-left {
+    margin: 0 ($spacer * 1.5) $spacer -10%;
+    max-width: 42%;
+  }
+
+  .in-content-float-right {
+    margin: 0 -10% $spacer ($spacer * 1.5);
+    max-width: 42%;
+  }
+
+  .in-content-float-none {
+    margin: 0 -10%;
+    max-width: 120%;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+
+  .in-content-float-left {
+    margin: 0 ($spacer * 1.5) $spacer -14%;
+  }
+
+  .in-content-float-right {
+    margin: 0 -14% $spacer ($spacer * 1.5);
+  }
+
+  .in-content-float-none {
+    margin: 0 -15%;
+    max-width: 128%;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+
+  .in-content-float-left {
+    margin: 0 ($spacer * 2) $spacer -17%;
+  }
+
+  .in-content-float-right {
+    margin: 0 -17% $spacer ($spacer * 2);
+  }
+
+  .in-content-float-none {
+    margin: 0 -17%;
+    max-width: 134%;
+  }
 }
 
 .sample {
@@ -24,11 +110,17 @@
 
 .paragraph {
   
+  &.border-top {
+    border-width: 5px !important;
+  }
+  
   &--single {
     position: relative;
     overflow: hidden;
     z-index: 1;
   }
+  
+  &--columns {}
   
   &__text {}
 
@@ -61,7 +153,8 @@
       background-image: linear-gradient(left, rgba(#000, .67) 0%,rgba(#000, 0) 85%);
     }
 
-    .align-content--left &__text__inner {
+    .align-content--left &__text__inner,
+    &.align-content--left .quote  {
       padding-right: 33%;
     }
 
@@ -69,7 +162,8 @@
       background-image: linear-gradient(left, rgba(#000, 0) 15%,rgba(#000, .67) 100%);
     }
 
-    .align-content--right &__text__inner {
+    .align-content--right &__text__inner,
+    &.align-content--right .quote {
       padding-left: 33%;
     }
 
@@ -96,7 +190,8 @@
   
   @include media-breakpoint-up(md) {
 
-    .align-content--center &__text__inner {
+    .align-content--center &__text__inner,
+    &.align-content--center .quote {
       margin: 0 15%;
       max-width: 800px;
     }
@@ -108,7 +203,8 @@
       bottom: ($spacer * 1.5);
     }
     
-    .align-content--center &__text__inner {
+    .align-content--center &__text__inner,
+    &.align-content--center .quote {
       margin: 0 20%;
     }
   }
@@ -122,3 +218,59 @@
 }
 
 
+// Testimonials or Quotes
+//<div class="paragraph paragraph--single">
+//  <div class="paragraph__quote p-3 p-lg-4 p-xl-5">
+//    <figure class="quote">
+//      <blockquote class="quote__content">
+//        <p>By teaming up with [...]</p>
+//      </blockquote>
+//      <figcaption class="quote__footer blockquote-footer">
+//        <cite title="says">That Person</cite>
+//      </figcaption>
+//    </figure>
+//  </div>
+//</div>
+
+.paragraph {
+
+  &__quote {}
+}
+
+.quote {
+
+  &__content {
+    quotes: none;
+    position: relative;
+  
+    p {
+      font-style: italic;
+      padding-left: em(32);
+    }
+  
+    p::before,
+    p:last-child::after {
+      color: $primary;
+      font-family: $font-family-serif;
+      font-size: rem(48);
+      font-style: italic;
+      font-weight: $font-weight-bold;
+      line-height: 1;
+    }
+  
+    p::before {
+      content: "“";
+      position: absolute;
+      top: 0;
+      left: .0625em;
+    }
+  
+    p:last-child::after {
+      content: "”";
+      display: inline;
+      line-height: 0;
+      margin-left: .125em;
+      vertical-align: text-bottom;
+    }
+  }
+}
