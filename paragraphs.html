@@ -1,0 +1,46 @@
+---
+layout: page
+nav-title: Paragraphs
+title: Sample Paragraph components
+permalink: paragraphs/
+---
+
+<div class="container">
+  <header class="content__header pb-2 pb-md-3 pb-lg-4">
+    <h1 class="display-3">{{ page.title }}</h1>
+  </header>
+  <p class="lead">When we build with Drupal, we like to spec out a way to build flexible content. This is an attempt to document that approach and make it consistent from project to project.</p>
+  
+  <h2 id="content">Content Components</h2>
+  <p>Content components are agnostic of layout and are the basis for any page. Without content, you got nothing. </p>
+  
+  <h3>Body Content</h3>
+  <p><abbr title="What You See Is What You Get" class="initialism">WYSIWYG</abbr> content, including images, tables, and buttons. You know, the works.</p>
+  
+  <h3>Image Content</h3>
+  <p>A media element using Drupal Responsive Images and Focal Point modules.</p>
+  
+  <h3>Video Content</h3>
+  <p>Drupal will store YouTube or Vimeo identifiers in its own content type. An author need only choose the video that they want to place in a paragraph and the template does all the work of creating the needed embed code.</p>
+  
+  <h3>Gallery Content</h3>
+  <p>If we can have images and videos, than why not a collection of images and videos?</p>
+  
+  <h3>Testimonials/Quotes</h3>
+  <p>It might be a good idea for some sites to handle quotes in a consistent way. Fields should include quote body (maybe multiple lengths?), quote citation (optional), quote citation description (for a job title when needed, optional), and a quote title.</p>
+  
+  <h2 id="layout">Layout</h2>
+  <p>While Bootstrap has a large variety of possible layouts with its grid structure, we want to give authors a limited set of the most used grid patterns to choose from. </p>
+</div>
+
+{% include paragraphs/hero.html %}
+
+{% include paragraphs/column-duo.html %}
+
+{% include paragraphs/column-trio.html %}
+
+{% include paragraphs/column-quartet.html %}
+
+{% include paragraphs/quotes.html %}
+
+{% include paragraphs/body.html %}

@@ -5,8 +5,33 @@ title: Sample HTML Elements
 permalink: sample-html/
 ---
 
-<div class="typography">
-              
+<style>
+/* For the style guide */
+.example { 
+  position: relative; 
+  background-color: #fff;
+  border: 1px solid #ddd; 
+  padding: 1em 1em 0em; 
+  margin-bottom: 1.25em; 
+  box-shadow: 0 0 1em rgba( 0,0,0,0.2 ); 
+}
+.example:before {
+  content: 'EXAMPLE'; 
+  position: absolute; 
+  top: 0; right: 0; 
+  z-index: 9999; 
+  font-size: .75em; 
+  color: #fff; 
+  background-color: #303030;
+  padding: .4em .75em .3em; 
+} 
+.examplecode {
+  padding: 1.125em;
+}
+.example + .examplecode { margin-top: -1.25em; }
+.element-caption { display: block; }
+</style>
+
 <h1 id="menu">Style Guide and Sample Code</h1>
 <p><strong>These are basic markup and typographic styles for your site and how to use them.</strong> Most of these options are available through the TinyMCE edit window in the admin, but some will require knowledge of coding HTML. </p>
 
@@ -537,5 +562,3 @@ p q r s t u v w x y z { | } ~</code></pre>
 <p>There are all the styles that can be present inside the main content area with class <code>.typography</code>. Hope this helps you craft beautiful <strong>and semantic</strong> content</p>
 
 <p><a href="#menu">Back to Top &uarr;</a></p>
-
-</div>

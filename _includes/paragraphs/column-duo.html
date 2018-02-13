@@ -1,0 +1,105 @@
+<div class="sample py-2 py-md-3 py-lg-4 border-top border-bottom">
+  
+  <h2 class="text-primary px-3">Row with two columns & two different content components</h2>
+  
+  <div class="paragraph paragraph--columns container-fluid">
+    <div class="column--2 column-size--half row">
+      
+      {% comment %}Image component{% endcomment %}
+      <div class="column__item paragraph__img col-sm">
+        <div class="paragraph__img__inner">
+          <img class="paragraph__row__bgimage" src="https://source.unsplash.com/collection/1128928/1600x900" alt="">
+        </div>
+      </div>
+      
+      {% comment %}Text component{% endcomment %}
+      <div class="column__item col-sm align-self-center">
+        <div class="paragraph__text">
+          <div class="paragraph__text__inner">
+            <h2>Sharing what we’ve learned about costs</h2>
+            <p>As a Rhode Island organization, we understand the challenge all businesses face in controlling employee healthcare costs. From 2004 to 2012, our own employee healthcare costs rose 56%. We knew that wasn’t sustainable, and recognizing our responsibility to lead change, we launched a multiyear, multilayered plan to rethink our benefits strategy and practice:</p>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph--columns container-fluid border border-success">
+    <div class="column--2 column-size--half column-size--third-left row">
+      <div class="column__item col-sm-4">
+        <p class="bg-warning">.column-size--third-left</p>
+      </div>
+      <div class="column__item col-sm">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph--columns container-fluid border border-success">
+    <div class="column--2 column-size--half column-size--third-right row">
+      <div class="column__item col-sm">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+      <div class="column__item col-sm-4">
+        <p class="bg-warning">.column-size--third-right</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph--columns container-fluid border border-success">
+    <div class="column--2 column-size--half column-size--quarter-left row">
+      <div class="column__item col-sm-3">
+        <p class="bg-warning">.column-size--quarter-left</p>
+      </div>
+      <div class="column__item col-sm">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="paragraph paragraph--columns container-fluid border border-success">
+    <div class="column--2 column-size--half column-size--quarter-right row">
+      <div class="column__item col-sm">
+        <p class="bg-warning">&nbsp;</p>
+      </div>
+      <div class="column__item col-sm-3">
+        <p class="bg-warning">.column-size--quarter-right</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="sample__code alert-success">
+  <pre class="px-3">
+    <code>
+&lt;div class=&quot;paragraph paragraph--columns container-fluid&quot;&gt;
+  &lt;div class=&quot;column--2 column-size--half column-size--third-left row&quot;&gt;
+    &lt;div class=&quot;column__item col-sm-4&quot;&gt;
+      &lt;p class=&quot;bg-warning&quot;&gt;.column-size--third-left&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column__item col-sm&quot;&gt;
+      &lt;p class=&quot;bg-warning&quot;&gt;&amp;nbsp;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+// Options:
+// .column-size--half
+// .column-size--third-left
+// .column-size--third-right
+// .column-size--quarter-left
+// .column-size--quarter-right
+
+// Options for vertical alignment for ALL columns:
+// .align-items-start (top align all columns along horizontal axis)
+// .align-items-center (center align all columns along horizontal axis)
+// .align-items-end (end align all columns along horizontal axis)
+
+// Options for ANY individual column (overrides the options above):
+// .align-self-start
+// .align-self-center
+// .align-self-end
+    </code>
+  </pre>
+</div>

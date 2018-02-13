@@ -1,0 +1,110 @@
+// Variables needed
+$base-font-size-px: 16;
+//$line-height-base: 1.625; set in the manifest file to override BS4 variables
+
+
+// Debug Vertical Rhythm
+.vertical-grid {
+  // scss-lint:disable UrlFormat
+  background-image: url('http://basehold.it/i/24/cc0000');
+  background-position: 0 19px;
+  // scss-lint:enable UrlFormat
+}
+
+@include media-breakpoint-up(xl) {
+
+  .vertical-grid {
+    // scss-lint:disable UrlFormat
+    background-image: url('http://basehold.it/i/29/cc0000');
+    background-position: 0 22px;
+    // scss-lint:enable UrlFormat
+  }
+}
+
+
+// Notes
+// I have not yet figured out a way to do this programmatically
+// I'm not sure that it can be done
+// Line-height seems to be based on a multiple of the base-line-height / the element font size
+// but margins are anyone's guess
+
+.display-1 {
+  line-height: 1;
+  margin-bottom: .25em;
+}
+
+.display-2 {
+  line-height: 1.33;
+  margin-bottom: .1875em;
+}
+
+.display-3 {
+  line-height: 1.75;
+  margin-bottom: .125em;
+}
+
+.display-4 {
+  line-height: 1.25;
+  margin-bottom: .375em;
+}
+
+h1, .h1 {
+  line-height: 1.375;
+  margin-top: 1.4375em;
+  margin-bottom: .5em;
+}
+
+h2, .h2 {
+  line-height: $line-height-base;
+  margin-top: 1.0625em;
+  margin-bottom: .5625em;
+}
+
+h3, .h3 {
+  line-height: 1.25;
+  margin-top: 1.625em;
+  margin-bottom: 0.0625em;
+}
+
+h4, .h4 {
+  line-height: 1.5;
+  margin-top: -.25em;
+  margin-bottom: 0;
+}
+
+h5, .h5 {
+  line-height: 1.375;
+  margin-top: -.125em;
+  margin-bottom: 0;
+}
+
+h6, .h6 {
+  line-height: $line-height-base;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h2 + h3 {
+  margin-top: -.25em;
+}
+
+h3 + h4 {
+  margin-top: .75em;
+}
+
+p,
+ul,
+ol,
+dl,
+pre,
+figure,
+address {
+  margin-bottom: ($line-height-base * 1em);
+}
+
+pre {
+  // BS4 sets the fontsize to 87.5%, which is good, because monospace fonts look bigger than non-monospace
+  line-height: ($line-height-base * 1.125);
+  margin: -.5em 0 (($line-height-base - .5) * 1em);
+  padding: .625em 1.125em;
+}
