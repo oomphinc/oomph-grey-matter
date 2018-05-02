@@ -1,0 +1,48 @@
+//
+// Function from Neat that isn't being inherited for some reason
+//
+@function flex-grid($columns, $container-columns: $fg-max-columns) {
+  $width: $columns * $fg-column + ($columns - 1) * $fg-gutter;
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($width / $container-width);
+}
+
+
+//
+// Various containers
+// $border expects a list of widths
+// Example: container-light('0 0 1px 0')
+// which will produce a bottom border
+//
+@mixin container-dark($border: none) {
+  background-color: palette(mono, 75);
+  @if $border != 'none' {
+    border-style: solid;
+    border-color: palette(mono, black);
+    border-width: unquote($border);
+  }
+  color: palette(mono, 10);
+  padding: $page-gutter;
+}
+
+@mixin container-light($border: none) {
+  background-color: palette(mono, 10);
+  @if $border != 'none' {
+    border-style: solid;
+    border-color: palette(mono, 25);
+    border-width: unquote($border);
+  }
+  color: palette(mono, 75);
+  padding: $page-gutter;
+}
+
+@mixin container-white($border: none) {
+  background-color: palette(mono, 10);
+  @if $border != 'none' {
+    border-style: solid;
+    border-color: palette(mono, 15);
+    border-width: unquote($border);
+  }
+  color: palette(mono, 75);
+  padding: $page-gutter;
+}

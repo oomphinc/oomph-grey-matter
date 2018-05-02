@@ -1,0 +1,21 @@
+//
+// Font Awesome 4.7 is included in _includes/head.html automatically:
+// <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+// That means that icons work out of th ebox like this:
+//
+// <i class="fa fa-icon-name" aria-hidden="true"></i>
+//
+// Go here for a list of icons available: https://fontawesome.com/v4.7.0/icons/
+
+// If needed, a mixin is available to add the FontAwesome family declaration to 
+// an element that you otherwise can't access (can't add a .fa class)
+@mixin icon-font($content) {
+  content: $content;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

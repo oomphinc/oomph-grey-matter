@@ -8,44 +8,32 @@
 
 
 // Our functions and helpers
-@import 'functions';
-@import 'mixins/fluid-units';
-@import 'mixins/fluid-typography';
-@import 'mixins/maintain-ratio';
+@import 'abstracts/functions';
+@import 'abstracts/mixins/fluid-units';
+@import 'abstracts/mixins/fluid-typography';
+@import 'abstracts/mixins/maintain-ratio';
 
 
 // Reset variables
 // Bootstrap 4 requires that any customized variables are defined before Bootstrap is loaded.
-
-// Variables available are located here: _sass/bootstrap/scss/_variables.scss
-$font-family-serif: Georgia, 'Times New Roman', serif;
-$line-height-base: 1.625;  // golden ratio number would be 1.618
+@import 'abstracts/bs4-variables';
 
 
 // #Bootstrap
 // https://getbootstrap.com/docs/4.0/getting-started/theming/
-
-// Include only the parts we need
-// Required
-//@import "bootstrap/scss/functions";
-//@import "bootstrap/scss/variables";
-//@import "bootstrap/scss/mixins";
-
-// Optional
-//@import "bootstrap/scss/reboot";
-//@import "bootstrap/scss/type";
-//@import "bootstrap/scss/images";
-//@import "bootstrap/scss/code";
-//@import "bootstrap/scss/grid";
-
-
-// Or include the whole thing
 @import 'bootstrap/scss/bootstrap';
 
 
-// Finally, include any custom stuff that IS NOT an override
-@import 'responsive-type';
-@import 'vertical-rhythm';
-@import 'project';
-@import 'paragraphs';
-@import 'viewport-size';
+// Prototyping
+// Helpers and useful little items for building sites
+@import 'prototyping/code-highlight';
+@import 'prototyping/fontawesome';
+@import 'prototyping/header-links';
+@import 'prototyping/viewport-size';
+
+
+// Finally, include any custom stuff for this project
+@import 'project/content';
+@import 'project/responsive-type';
+@import 'project/typography';
+@import 'project/paragraphs';

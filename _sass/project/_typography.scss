@@ -1,0 +1,220 @@
+//
+// Debug Vertical Rhythm
+//
+// Turn these rules on to get a vertical baseline grid. Adjust measurements as needed.
+//
+
+.vertical-rhythm {
+
+  .content__main {
+    // The actual vertical gridlines
+    // scss-lint:disable UrlFormat
+    background-image: url('http://basehold.it/i/29/cc0000');
+    background-position: 0 22px;
+    // scss-lint:enable UrlFormat
+  }
+}
+
+// Notes
+// I have not yet figured out a way to do this programmatically
+// I'm not sure that it can be done reliably
+// Line-height seems to be based on a multiple of the base-line-height / the element font size
+// but margins are anyone's guess
+
+.content__main {
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child {
+    margin-top: 0 !important;
+  }
+
+  .display-1 {
+    font-weight: $font-sans-weight-light;
+    line-height: 1;
+    margin-bottom: .25em;
+  }
+  
+  .display-2 {
+    font-weight: $font-sans-weight-light;
+    line-height: 1.33;
+    margin-bottom: .1875em;
+  }
+  
+  .display-3 {
+    font-weight: $font-sans-weight-light;
+    line-height: 1.75;
+    margin-bottom: .125em;
+  }
+  
+  .display-4 {
+    font-weight: $font-sans-weight-light;
+    line-height: 1.25;
+    margin-bottom: .375em;
+  }
+  
+  h1,
+  .h1 {
+    line-height: 1.375;
+    margin-top: 1.4375em;
+    margin-bottom: .5em;
+  }
+  
+  h2,
+  .h2 {
+    line-height: $line-height-base;
+    margin-top: 1.0625em;
+    margin-bottom: .5625em;
+  }
+  
+  h3,
+  .h3 {
+    line-height: 1.25;
+    margin-top: 1.75em;
+    margin-bottom: 1em;
+  }
+  
+  h4,
+  .h4 {
+    line-height: 1.5;
+    margin-top: -.375em;
+    margin-bottom: 0;
+  }
+  
+  h5,
+  .h5 {
+    line-height: 1.375;
+    margin-top: -.125em;
+    margin-bottom: 0;
+  }
+  
+  h6,
+  .h6 {
+    font-weight: $font-sans-weight-bold;
+    line-height: $line-height-base;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  // Heading combinations
+  h2 + h3,
+  .h2 + .h3 {
+    margin-top: 1.375em;
+  }
+
+  p,
+  & > ul,
+  & > ol,
+  dl,
+  pre,
+  figure,
+  address,
+  form,
+  table {
+    margin-bottom: ($line-height-base * 1em);
+  }
+
+
+  // scss-lint:disable MergeableSelector
+  ul { list-style: disc; }
+
+  ul ul { list-style: square; }
+
+  ul ul ul { list-style: circle; }
+
+  ol { list-style: decimal; }
+
+  ol ol { list-style: upper-alpha; }
+
+  ol ol ol { list-style: upper-roman; }
+
+  ol ol ol ol { list-style: lower-alpha; }
+
+  ol ol ol ol ol { list-style: lower-roman; }
+  // scss-lint:enable MergeableSelector
+
+
+  // List elements need tighter line height
+  li {
+    line-height: ($line-height-base - .125);
+    padding-bottom: .125em;
+  }
+
+  // BS4 Reboot is opinionated and removes the user agent default italic style
+  address {
+    font-style: italic;
+  }
+
+  // Another BS4 opinion. Table captions should be top in our opinion
+  caption {
+    caption-side: top;
+  }
+
+  // Oomph's default blockquote style
+  blockquote {
+    quotes: none;
+    position: relative;
+
+    p {
+      color: $secondary;
+      font-style: italic;
+      padding-left: em(32);
+    }
+
+    p::before,
+    p:last-child::after {
+      color: $info;
+      font-family: $font-family-serif;
+      font-size: rem(48);
+      font-style: italic;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    p::before {
+      content: "“";
+      position: absolute;
+        top: 0; left: .0625em;
+    }
+
+    p:last-child::after {
+      content: "”";
+      display: inline;
+      line-height: 0;
+      margin-left: .125em;
+      vertical-align: text-bottom;
+    }
+  }
+
+  pre {
+    // BS4 sets the fontsize to 87.5%, which is good, because monospace fonts
+    // look bigger than non-monospace
+    line-height: ($line-height-base * 1.125);
+    margin: -.5em 0 (($line-height-base - .5) * 1em);
+    padding: .625em 1.125em;
+  }
+  
+  // These should change depending on the language
+  [lang="en-US"] & {
+
+    q {
+      display: inline;
+      quotes: "“" "”" "‘" "’";
+
+      &::before { content: open-quote; }
+
+      &::after {
+        content: close-quote;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  abbr[title] {
+    font-size: 75%;
+    font-weight: $font-sans-weight-bold;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+  }
+}

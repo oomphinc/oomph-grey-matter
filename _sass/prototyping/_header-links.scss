@@ -1,0 +1,42 @@
+// Add link icons to Headings with IDs
+// The anchors inside are added via JS, so, if no JS... no icons
+h1[id],
+h2[id],
+h3[id],
+h4[id] {
+
+  & > a {
+    color: inherit;
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      @include icon-font('\f0c1');
+      color: $gray-400 !important;
+      font-size: .75em !important;
+      margin-left: .5rem;
+      opacity: 1;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+      transition: opacity 500ms ease;
+      
+      @include media-breakpoint-up(lg) {
+        font-size: 1rem !important;
+        left: auto;
+        right: 100%;
+        margin-left: 0;
+        margin-right: .5rem;
+        opacity: 0;
+      }
+    }
+
+    &:hover::after,
+    &:focus::after {
+      color: $primary !important;
+      opacity: 1;
+      transition: opacity 500ms ease;
+    }
+  }
+}

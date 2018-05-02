@@ -1,0 +1,64 @@
+//<header class="mainhead">
+//	<div class="layout__container">
+//		<a class="mainhead__title alpha" href="/grey-matter/">Grey Matter</a>
+//			<div class="mainnav">
+//    		<nav class="mainnav__wrapper">
+//    			<ul class="mainnav__list">
+//      			<li class="mainnav__list__item"><a href="/grey-matter/readme/" class="mainnav__link">Read Me</a></li>
+//					 </ul>
+body {
+  background-color: $color-body
+}
+
+.mainhead {
+  @include clearfix;
+  @include container-dark();
+  text-align: center;
+
+  &__title {
+    color: palette(mono, 10);
+  }
+
+  // All anchors in the header including the nav
+  a {
+
+    @include touch-hover('idle') {
+      color: palette(mono, 25);
+    }
+
+    @include touch-hover('hover') {
+      color: palette(mono, white);
+    }
+  }
+
+  @include media($small-up) {
+    text-align: left;
+  }
+}
+
+.mainnav {
+
+  &__wrapper {}
+
+  &__list {
+
+    &__item {}
+  }
+
+  &__link {
+    display: block;
+    line-height: 1.25;
+    padding: .25em .5em; 
+  }
+
+  @include media($small-up) {
+
+    &__list {
+      margin-left: -.5em;
+
+      &__item {
+        display: inline-block;
+      }
+    }
+  }
+}

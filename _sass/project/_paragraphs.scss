@@ -1,0 +1,425 @@
+// General
+
+.bg-light {
+  background-color: $gray-200 !important;
+}
+
+.bg-primary-light {
+  background: percent-color($primary, 8%);
+}
+
+.mh-sm-100,
+.mh-md-100,
+.mh-lg-100,
+.mh-xl-100 {
+  min-height: auto;
+}
+
+.mh-100 {
+  min-height: 100vh;
+}
+
+@include media-breakpoint-up(sm) {
+  .mh-sm-100 {
+    min-height: 100vh;
+  }
+}
+@include media-breakpoint-up(md) {
+  .mh-md-100 {
+    min-height: 100vh;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .mh-lg-100 {
+    min-height: 100vh;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .mh-xl-100 {
+    min-height: 100vh;
+  }
+}
+
+
+
+// NAVBAR start
+
+#navbarNav {
+  font-size: 87.5%;
+  
+  .nav-link {
+    transition: all 250ms ease;
+
+    &.active-section {
+      color: $black !important;
+      background-color: $warning;
+    }
+  }
+  
+  .submenu {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+
+.submenu-item {
+
+  .nav-link {
+    color: $gray-600;
+    font-size: 85.5%;
+    line-height: 1.25;
+    padding: .25rem 1rem;
+    
+    &:hover, &:focus {
+      color: currentColor;
+    }
+  }
+}
+
+// NAVBAR end
+
+
+// Inline floating images start
+
+// Handling images or other media in body content
+.in-content-float-left {
+  float: left;
+  margin: 0 $spacer 0 0;
+  max-width: 45%;
+}
+
+.in-content-float-right {
+  float: right;
+  margin: 0 0 0 $spacer;
+  max-width: 45%;
+}
+
+.in-content-float-none {
+  margin: 0 auto;
+}
+
+@include media-breakpoint-up(md) {
+
+  .in-content-float-left {
+    margin: 0 ($spacer * 1.5) $spacer -10%;
+    max-width: 42%;
+  }
+
+  .in-content-float-right {
+    margin: 0 -10% $spacer ($spacer * 1.5);
+    max-width: 42%;
+  }
+
+  .in-content-float-none {
+    margin: 0 -10%;
+    max-width: 120%;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+
+  .in-content-float-left {
+    margin: 0 ($spacer * 1.5) $spacer -14%;
+  }
+
+  .in-content-float-right {
+    margin: 0 -14% $spacer ($spacer * 1.5);
+  }
+
+  .in-content-float-none {
+    margin: 0 -15%;
+    max-width: 128%;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+
+  .in-content-float-left {
+    margin: 0 ($spacer * 2) $spacer -17%;
+  }
+
+  .in-content-float-right {
+    margin: 0 -17% $spacer ($spacer * 2);
+  }
+
+  .in-content-float-none {
+    margin: 0 -17%;
+    max-width: 134%;
+  }
+}
+
+// Inline floating images end
+
+
+// Sharing start
+
+//<div class="share pt-2 pt-md-3 pt-lg-4">
+//  <div class="addthis_toolbox addthis_default_style addthis_32x32_style" data-url="{{ site.baseurl }}{{ page.permalink }}#blueangel-quote" data-title="By teaming up with Boys &amp; Girls Clubs of Providence, Blue Cross &amp; Blue Shield of Rhode Island has impacted the lives of over 400 children" data-description="BlueAngel Community Health Grants" data-media="https://source.unsplash.com/collection/370799/800x800">
+//    <a class="addthis_button_compact"></a>
+//  </div>
+//</div>
+
+.share {
+  text-align: right;
+
+  .addthis_toolbox {
+    display: inline-block;
+  }
+  
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 0;
+    right: 2rem;
+  }
+}
+
+// Sharing end
+
+
+.sample {
+  
+  &__code pre code {
+    font-size: 87.5%;
+  }
+}
+
+.section {
+  padding-bottom: ($spacer * 2);
+  
+  @include media-breakpoint-up(sm) {
+    padding-bottom: ($spacer * 3);
+  }
+  @include media-breakpoint-up(md) {
+    padding-bottom: ($spacer * 3.5);
+  }
+  @include media-breakpoint-up(lg) {
+    padding-bottom: ($spacer * 4);
+  }
+  @include media-breakpoint-up(xl) {
+    padding-bottom: ($spacer * 4.5);
+  }
+}
+
+
+//<div class="sample py-2 py-md-3 py-lg-4">
+//  <div class="paragraph paragraph--single paragraph--bg-img align-content--left align-content--bottom">
+//    <img class="paragraph__row__bgimage" src="https://source.unsplash.com/collection/1128928/1600x900" alt="">
+//    <div class="paragraph__content p-3 p-lg-4 p-xl-5">
+//      <div class="paragraph__content__inner">
+//        <h2 class="display-4">Single Column row Title that is a little long to test how the text wraps around</h2>
+//        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+//        <p><button type="button" class="btn btn-secondary">Call to Action</button></p>
+//      </div>
+//    </div>
+//  </div>
+//</div>
+
+.paragraph {
+  position: relative; // for sharing positioning
+  overflow: hidden;
+
+  &.border-top {
+    border-width: 5px !important;
+  }
+
+  &--single {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  &__row__bgimage {
+
+    @include media-breakpoint-down(md) {
+      margin: 0 -7.5%;
+      max-width: 115%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin: 0 -15%;
+      max-width: 130%;
+    }
+  }
+
+  &--columns {}
+
+  &__text {
+    padding: $spacer;
+
+    @include media-breakpoint-up(sm) {
+      padding: ($spacer * 1.5) $spacer;
+    }
+    @include media-breakpoint-up(md) {
+      padding: ($spacer * 2) ($spacer *1.5);
+    }
+    @include media-breakpoint-up(xl) {
+      padding: ($spacer * 3) ($spacer *2);
+    }
+
+    &__inner {
+
+      *:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // Override some vertical rhythm things for Hero paragraphs
+  &--bg-img#{&}--single {
+
+    .display-3 {
+      line-height: 1.25;
+    }
+  }
+
+
+  &--bg-img#{&}--single &__text {
+
+    // 1. Medium, position the content over the image
+    // 2. Flip the colors to white
+    // 3. Add a background color gradient to mask the image and ensure the text is legible
+    //    Create variations on the positional options
+    @include media-breakpoint-up(sm) {
+      // 1.
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      // 2.
+      color: $white;
+    }
+  }
+  
+  // 3.
+  @include media-breakpoint-up(sm) {
+
+    // Horizontal positioning
+    // Gradients only added only when class .paragraph--bg-img present
+    &--bg-img.align-content--left &__text {
+      background-image: linear-gradient(left, rgba(#000, .67) 0%,rgba(#000, 0) 85%);
+    }
+
+    .align-content--left &__text__inner,
+    &.align-content--left .quote  {
+      padding-right: 33%;
+    }
+
+    &--bg-img.align-content--right &__text {
+      background-image: linear-gradient(left, rgba(#000, 0) 15%,rgba(#000, .67) 100%);
+    }
+
+    .align-content--right &__text__inner,
+    &.align-content--right .quote {
+      padding-left: 33%;
+    }
+
+    &--bg-img.align-content--center &__text {
+      background-image: radial-gradient(ellipse at center, rgba(#000, .75) 0%,rgba(#000, 0) 100%);
+    }
+
+    // Vertical positioning
+    &--bg-img.align-content--top &__text__inner {
+      // default
+    }
+
+    &--bg-img.align-content--middle &__text__inner {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &--bg-img.align-content--bottom &__text__inner {
+      position: absolute;
+      bottom: $spacer;
+    }
+  } // end media-breakpoint-up(sm)
+  
+  @include media-breakpoint-up(md) {
+
+    .align-content--center &__text__inner,
+    &.align-content--center .quote {
+      margin: 0 15%;
+      max-width: 800px;
+    }
+  }
+  
+  @include media-breakpoint-up(lg) {
+
+    &--bg-img.align-content--bottom &__text__inner {
+      bottom: ($spacer * 1.5);
+    }
+    
+    .align-content--center &__text__inner,
+    &.align-content--center .quote {
+      margin: 0 20%;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+
+    &--bg-img.align-content--bottom &__text__inner {
+      bottom: ($spacer * 3);
+    }
+  }
+}
+
+
+// Testimonials or Quotes
+//<div class="paragraph paragraph--single">
+//  <div class="paragraph__quote p-3 p-lg-4 p-xl-5">
+//    <figure class="quote">
+//      <blockquote class="quote__content">
+//        <p>By teaming up with [...]</p>
+//      </blockquote>
+//      <figcaption class="quote__footer blockquote-footer">
+//        <cite title="says">That Person</cite>
+//      </figcaption>
+//    </figure>
+//  </div>
+//</div>
+
+.paragraph {
+
+  &__quote {}
+}
+
+.quote {
+
+  &__content {
+    quotes: none;
+    position: relative;
+  
+    p {
+      font-style: italic;
+      padding-left: em(32);
+    }
+  
+    p::before,
+    p:last-child::after {
+      color: $primary;
+      font-family: $font-family-serif;
+      font-size: rem(48);
+      font-style: italic;
+      font-weight: $font-weight-bold;
+      line-height: 1;
+    }
+  
+    p::before {
+      content: "“";
+      position: absolute;
+      top: 0;
+      left: .0625em;
+    }
+  
+    p:last-child::after {
+      content: "”";
+      display: inline;
+      line-height: 0;
+      margin-left: .125em;
+      vertical-align: text-bottom;
+    }
+  }
+}

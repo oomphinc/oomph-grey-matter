@@ -1,0 +1,14 @@
+// A little tag at the end of the HTML, right before the body tag
+// JS injects the width and height of the current viewport
+
+// For development only!!
+
+#size {
+  background-color: $info;
+  color: $white;
+  font-size: 14px;
+  padding: .1875em .625em;
+  position: fixed;
+    right: 0; bottom: 0;
+  z-index: 2147483647; // highest possible
+}

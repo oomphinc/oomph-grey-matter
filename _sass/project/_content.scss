@@ -1,0 +1,28 @@
+//<main id="main" class="content layout--content">
+//	<div class="layout--container">
+//	  <header class="content--header">
+//  		<h1 class="content--title giga">{{ page.title }}</h1>
+//  	</header>
+//  	<article class="content--main">
+.content {
+
+  &__header {
+    
+    & > h1 {
+      margin-top: 0;
+    }
+  }
+
+  &__title {}
+
+  &__main {
+    padding-bottom: map-get($spacers, 3);
+  }
+
+  @include media-breakpoint-up(md) {
+
+    &__main {
+      padding-bottom: map-get($spacers, 4);
+    }
+  }
+}
