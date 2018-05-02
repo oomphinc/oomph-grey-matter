@@ -3,6 +3,7 @@ layout: text
 nav-title: HTML Elements
 title: Sample HTML Elements
 permalink: sample-html/
+body-class: sample-html
 ---
 
 <style>
@@ -10,10 +11,10 @@ permalink: sample-html/
 .example { 
   position: relative; 
   background-color: #fff;
-  border: 1px solid #ddd; 
+  border: 1px solid #e6e6e6; 
   padding: 1em 1em 0em; 
   margin-bottom: 1.25em; 
-  box-shadow: 0 0 1em rgba( 0,0,0,0.2 ); 
+  box-shadow: 0 0 .75em rgba( 0,0,0,0.15 ); 
 }
 .example:before {
   content: 'EXAMPLE'; 
@@ -26,6 +27,7 @@ permalink: sample-html/
   padding: .4em .75em .3em; 
 } 
 .examplecode {
+  background-color: #f2f2f2;
   padding: 1.125em;
 }
 .example + .examplecode { margin-top: -1.25em; }
@@ -69,8 +71,9 @@ permalink: sample-html/
 <!-- Groupings -->
 <h1 id="grouping">Grouping content</h1>
 <h3>Paragraphs</h3>
-<p>All paragraphs are wrapped in <code>&lt;p&gt;</code> tags. Additionally, <code>&lt;p&gt;</code> elements can be wrapped with a <code>&lt;blockquote&gt;</code> element <em>if the <code>p</code> element is indeed a quote</em>. Historically, <code>blockquote</code> has been used purely to force indents, but this is now achieved using CSS. Reserve <code>blockquote</code> for quotes.</p>
-
+<div class="example">
+  <p>All paragraphs are wrapped in <code>&lt;p&gt;</code> tags. Additionally, <code>&lt;p&gt;</code> elements can be wrapped with a <code>&lt;blockquote&gt;</code> element <em>if the <code>p</code> element is indeed a quote</em>. Historically, <code>blockquote</code> has been used purely to force indents, but this is now achieved using CSS. Reserve <code>blockquote</code> for quotes.</p>
+</div>
 <pre class="examplecode"><code>&lt;p&gt;This is a paragraph&lt;/p&gt;</code></pre>
 
 <h3 id="blockquotes">Blockquotes</h3>
@@ -352,15 +355,17 @@ p q r s t u v w x y z { | } ~</code></pre>
 <h1 id="tables">Tabular data</h1>
 <p>Tables should be used when displaying tabular data. The <code>&lt;caption&gt;</code> element gives the table a title, while the <code>&lt;colgroup&gt;</code> and <code>&lt;col&gt;</code> elements help align columns. The <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements enable you to group sets of rows within each a table &mdash; the <code>thead</code> and <code>&lt;th&gt;</code> elements should be used to denote a row of table headings. </p>
 <div class="example">
-<table>
+<table class="table">
     <caption>The Very Best Eggnog</caption>
     <colgroup>
-    	<col style="width:50%">
+    	<col style="width:10%">
+    	<col style="width:40%">
     	<col style="width:25%">
     	<col style="width:25%">
     </colgroup>
     <thead>
     	<tr>
+      	<th scope="col">#</th>
     		<th scope="col">Ingredients</th>
     		<th scope="col">Serves 12</th>
     		<th scope="col">Serves 24</th>
@@ -368,61 +373,73 @@ p q r s t u v w x y z { | } ~</code></pre>
     </thead>
     <tbody>
     	<tr>
+    		<th scope="row">1</th>
     		<td>Milk</td>
     		<td>1 quart</td>
     		<td>2 quart</td>
     	</tr>
     	<tr>
+    		<th scope="row">2</th>
     		<td>Cinnamon Sticks</td>
     		<td>2</td>
     		<td>1</td>
     	</tr>
     	<tr>
+    		<th scope="row">3</th>
     		<td>Vanilla Bean, Split</td>
     		<td>1</td>
     		<td>2</td>
     	</tr>
     	<tr>
+    		<th scope="row">4</th>
     		<td>Cloves</td>
     		<td>5</td>
     		<td>10</td>
     	</tr>
     	<tr>
+    		<th scope="row">5</th>
     		<td>Mace</td>
     		<td>10 blades</td>
     		<td>20 blades</td>
     	</tr>
     	<tr>
+    		<th scope="row">6</th>
     		<td>Egg Yolks</td>
     		<td>12</td>
     		<td>24</td>
     	</tr>
     	<tr>
+    		<th scope="row">7</th>
     		<td>Cups Sugar</td>
     		<td>1 ½ cups</td>
     		<td>3 cups</td>
     	</tr>
     	<tr>
+    		<th scope="row">8</th>
     		<td>Dark Rum</td>
     		<td>1 ½ cups</td>
     		<td>3 cups</td>
     	</tr>
     	<tr>
+    		<th scope="row">9</th>
     		<td>Brandy</td>
     		<td>1 ½ cups</td>
     		<td>3 cups</td>
     	</tr>
     	<tr>
+    		<th scope="row">10</th>
     		<td>Vanilla</td>
     		<td>1 tbsp</td>
     		<td>2 tbsp</td>
     	</tr>
     	<tr>
+    		<th scope="row">11</th>
     		<td>Half-and-half or Light Cream</td>
     		<td>1 quart</td>
     		<td>2 quart</td>
     	</tr>
     	<tr>
+    		<th scope="row">12</th>
     		<td>Freshly grated nutmeg to taste</td>
     		<td></td>
     		<td></td>
@@ -430,10 +447,11 @@ p q r s t u v w x y z { | } ~</code></pre>
     </tbody>
     </table>
 </div>
-<pre class="examplecode"><code>&lt;table>
+<pre class="examplecode"><code>&lt;table class="table">
   &lt;caption>The Very Best Eggnog&lt;/caption>
   &lt;colgroup>
-    &lt;col style="width:50%">
+    &lt;col style="width:10%">
+    &lt;col style="width:40%">
     &lt;col style="width:25%">
     &lt;col style="width:25%">
   &lt;/colgroup>
@@ -446,6 +464,7 @@ p q r s t u v w x y z { | } ~</code></pre>
   &lt;/thead>
   &lt;tbody>
     &lt;tr>
+      &lt;th scope="row">1&lt;/th>
       &lt;td>Milk&lt;/td>
       &lt;td>1 quart&lt;/td>
       &lt;td>2 quart&lt;/td>
@@ -464,97 +483,110 @@ p q r s t u v w x y z { | } ~</code></pre>
 <p>The <code>&lt;fieldset&gt;</code> element groups related fields within a form and should have a title attribute and a corresponding <code>&lt;legend&gt;</code>. The <code>&lt;label&gt;</code> element ensures field descriptions are associated with their corresponding form widgets, and are very important for form accesibility.</p>
 
 <div class="example">
-    <form class="form">
-        <fieldset title="Sample input field types">
-            <legend class="form--legend">Input Field Types</legend>
-            <p>
-                <label for="text">Text Input</label>
-                <input id="text" name="text" class="form--input" type="text" required="required">
-                <small class="element-caption">This is a sample input field of type="text"</small>
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form--input" type="password" required="required">
-                <small class="element-caption">This is a sample input field of type="password"</small>
-            </p>
-            <p>
-                <label for="email">Email Address</label>
-                <input id="email" name="email" class="form--input" type="email" placeholder="you@example.com" required="required">
-                <small class="element-caption">This is a sample input field of type="email"</small>
-            </p>
-            <p>
-                <label for="url">Web Address</label>
-                <input id="url" name="url" class="form--input" type="url" placeholder="http://example.com">
-                <small class="element-caption">This is a sample input field of type="url"</small>
-            </p>
-            <p>
-                <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" class="form--input" type="tel" placeholder="000-000-0000">
-                <small class="element-caption">This is a sample input field of type="number"</small>
-            </p>
-            <p>
-                <label for="number">Number String</label>
-                <input id="number" name="number" class="form--input" type="number" placeholder="1234567890">
-                <small class="element-caption">This is a sample input field of type="number"</small>
-            </p>
-            <p>
-                <label for="textarea">Textarea</label>
-                <textarea id="textarea" name="textarea" class="form--textarea" rows="8"></textarea>
-                <small class="element-caption">This is a sample textarea for multi-line user input</small>
-            </p>
-        </fieldset>
+  <form class="form">
+    <fieldset title="Sample input field types">
+      <legend class="form--legend">Input Field Types</legend>
+      <div class="form-group">
+        <label for="exampleText">Text Input</label>
+        <input id="exampleText" class="form-control" type="text" required="required" aria-describedby="textHelp" placeholder="Plain Text">
+        <small id="textHelp" class="form-text text-muted">This is a sample input field of type="text"</small>
+      </div>
+      <div class="form-group">
+        <label for="examplePassword">Password</label>
+        <input id="examplePassword" class="form-control" type="password" required="required" aria-describedby="passwordHelp" placeholder="At least 8 characters">
+        <small id="passwordHelp" class="form-text text-muted">This is a sample input field of type="password"</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleEmail">Email Address</label>
+        <input id="exampleEmail" class="form-control" type="email" required="required" aria-describedby="emailHelp" placeholder="you@example.com">
+        <small id="emailHelp" class="form-text text-muted">This is a sample input field of type="email"</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleUrl">Web Address</label>
+        <input id="exampleUrl" class="form-control" type="url" aria-describedby="urlHelp" placeholder="http://example.com">
+        <small id="urlHelp" class="form-text text-muted">This is a sample input field of type="url"</small>
+      </div>
+      <div class="form-group">
+        <label for="examplePhone">Phone Number (Tel)</label>
+        <input id="examplePhone" name="phone" class="form-control" type="tel" aria-describedby="telHelp" placeholder="000-000-0000">
+        <small id="telHelp" class="form-text text-muted">This is a sample input field of type="tel"</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleNumber">Number String</label>
+        <input id="exampleNumber" name="number" class="form-control" type="number" aria-describedby="numberHelp" placeholder="1234567890">
+        <small id="numberHelp" class="form-text text-muted">This is a sample input field of type="number"</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea">Textarea</label>
+        <textarea id="exampleTextarea" class="form-control" rows="4" aria-describedby="textareaHelp">Start typing your message&hellip;</textarea>
+        <small id="textareaHelp" class="form-text text-muted">This is a sample textarea for multi-line user input</small>
+      </div>
+    </fieldset>
 
-        <fieldset title="Selectable Option Items">
-            <legend>Selectable Option Items</legend>
-            <p>
-                <label for="select">Select</label>
-                <select id="select" name="select" class="form--select">
-                    <optgroup label="Option Group">
-                        <option value="">Option One</option>
-                        <option value="">Option Two</option>
-                        <option value="">Option Three</option>
-                    </optgroup>
-                </select>
-                <small class="element-caption">A select form element contains more than one <code>&lt;option&gt;</code> element</small>
-            </p>
-            <ul class="horizontal-list" role="menu">
-                <li>
-                    <label for="checkbox1" class="check"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label>
-                </li>
-                <li>
-                    <label for="checkbox2" class="check"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label>
-                </li>
-                <li>
-                    <label for="checkbox3" class="check"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label>
-                </li>
-            </ul>
-            <p><small class="element-caption">Checkboxes can be selected independently, and more than one can be selected</small></p>
-            
-            <ul class="horizontal-list" role="menu">
-                <li>
-                    <label for="radio1" class="radio"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label>
-                </li>
-                <li>
-                    <label for="radio2" class="radio"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label>
-                </li>
-                <li>
-                    <label for="radio3" class="radio"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label>
-                </li>
-            </ul>
-            <p><small class="element-caption">Radio buttons are inter-dependent, and usually only one can be chosen</small></p>
-        </fieldset>
+    <fieldset title="Selectable Option Items">
+      <legend>Selectable Option Items</legend>
+      <div class="form-group">
+        <label for="exampleSelect">Select</label>
+        <select id="exampleSelect" class="form-control" aria-describedby="selectHelp">
+          <optgroup label="Option Group">
+            <option value="">Option One</option>
+            <option value="">Option Two</option>
+            <option value="">Option Three</option>
+          </optgroup>
+        </select>
+        <small id="selectHelp" class="form-text text-muted">A select form element contains more than one <code>&lt;option&gt;</code> element</small>
+      </div>
+      
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">Default checkbox 1</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+          <label class="form-check-label" for="defaultCheck2">Default checkbox 2</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" disabled>
+          <label class="form-check-label" for="defaultCheck3">Disabled checkbox 3</label>
+        </div>
+      </div>
+      <p><small class="form-text text-muted">Checkboxes can be selected independently, and more than one can be selected</small></p>
+      
+      <div class="form-group">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Second default radio
+          </label>
+        </div>
+        <div class="form-check form-check-inline disabled">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+          <label class="form-check-label" for="exampleRadios3">
+            Disabled radio
+          </label>
+        </div>
+      </div>
+      <p><small class="form-text text-muted">Radio buttons are inter-dependent, and usually only one can be chosen. This example also uses the <code>.form-check-inline</code> option. </small></p>
+    </fieldset>
 
-        <fieldset title="Buttons">
-            <legend>Button Types: input type="submit", <code>&lt;button&gt;</code>, input type="reset", <code>&lt;a&gt;.button</code> and an <code>&lt;a&gt;</code></legend>
-            <p>
-              <input class="button button__primary" type="submit" id="submit" name="submit" value="Submit"> 
-              <button class="button button__secondary">Preview</button> 
-              <input class="button" type="reset" id="reset" name="reset" value="Clear Form"> 
-              <a href="#" class="button" title="Cancel">Anchor as Button</a>
-              <a href="#" title="Cancel">Simple Anchor Link</a>
-            </p>
-        </fieldset>
-    </form>
+    <fieldset title="Buttons">
+      <legend>Button Types: input type="submit", <code>&lt;button&gt;</code>, input type="reset", <code>&lt;a&gt;.button</code> and an <code>&lt;a&gt;</code></legend>
+      <p>
+        <input class="btn btn-primary" type="submit" id="submit" name="submit" value="Submit"> 
+        <button class="btn btn-secondary">Preview</button> 
+        <input class="button" type="reset" id="reset" name="reset" value="Clear Form"> 
+        <a href="#" class="btn btn-dark" title="Cancel">Anchor as Button</a>
+        <a href="#" title="Cancel">Simple Anchor Link</a>
+      </p>
+    </fieldset>
+  </form>
 </div>
 
 <hr />

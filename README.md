@@ -7,7 +7,7 @@ permalink: readme/
 
 ## Grey Matter
 
-Grey Matter is a start for stand-alone wireframe projects. Inspired by [Distillery](https://github.com/thinkshout/distillery/tree/master/) (and now heavily updated/modified), built and served with Jekyll, leveraging Oomph SASS Scaffold&hellip; [Refills](http://refills.bourbon.io/) help get us up and running with minimal styles and standard best-practice markup.
+Grey Matter is a boilerplate for stand-alone wireframe projects. Inspired by [Distillery](https://github.com/thinkshout/distillery/tree/master/) (and now heavily updated/modified), built and served with Jekyll, leveraging some Oomph Scaffold custom code and [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/download/).
 
 
 ### Getting started
@@ -15,12 +15,12 @@ To get up and running:
 
 
 #### Install dependencies
-Navigate to this folder in your Terminal, then:
+Navigate to the project folder in your Terminal, then:
 
-```
+{% highlight shell %}
 $ gem install bundler
 $ bundle install
-```
+{% endhighlight %}
 
 +Note: you may need to run the installers using the `$ sudo` command depending on the permissions of your computer.
 
@@ -28,11 +28,43 @@ $ bundle install
 #### Run the Local server and SASS compiler
 From the project root, run: 
 
-`$ jekyll serve`
+{% highlight shell %}
+$ jekyll serve
+{% endhighlight  %}
 
 The server is available at `http://localhost:4040/grey-matter/` or  `http://0.0.0.0:4040/grey-matter/`. 
 
 If the compiled file URLs need to have a different root path, change the `baseurl` value in  `_config` and restart the server. The web url will change as well, i.e. `http://localhost:4040/project`. When you upload the sites content to a server, all URLs will be prefixed with `/project`.
+
+
+### Project Structure
+{% highlight JavaScript %}
+config.yml           // project set up and variables for base URL path
+_includes            // HTML partials
+-- footer.html
+-- head.html
+-- header.html
+-- navigation.html
+-- paragraphs        // specific partials for paragraph components
+---- body.html
+---- etc...
+_layouts             // HTML templates
+-- default.html      // Base tempalte
+-- page.html         // Base content template, inherits default
+-- text.html         // Base text template (constrained container), inherits default
+_plugins             // RB files for Jekyll plugins
+_sass                // The gold
+_site                // Rendered static HTML (not under version control)
+assets               // Static assets
+-- css
+---- greymatter.scss // Jekyll pipeline converts this to CSS on render
+-- img
+-- js
+feed.xml             // Sample file type XML
+Gemfile              // Project dependency manager
+Gemfile.lock
+etc...
+{% endhighlight %}
 
 
 ### Usage
