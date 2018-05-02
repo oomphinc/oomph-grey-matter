@@ -141,11 +141,6 @@
     padding-bottom: .125em;
   }
 
-  // BS4 Reboot is opinionated and removes the user agent default italic style
-  address {
-    font-style: italic;
-  }
-
   // Another BS4 opinion. Table captions should be top in our opinion
   caption {
     caption-side: top;
