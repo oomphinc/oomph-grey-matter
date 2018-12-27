@@ -8,10 +8,9 @@
 
   .content__main {
     // The actual vertical gridlines
-    // scss-lint:disable UrlFormat
-    background-image: url('http://basehold.it/i/29/cc0000');
-    background-position: 0 22px;
-    // scss-lint:enable UrlFormat
+    background: linear-gradient(#c0c 0px, #fff 1px) repeat;
+    background-size: 100% 29px;
+    padding-top: 8px;
   }
 }
 
@@ -32,60 +31,61 @@
   .display-1 {
     font-weight: $font-sans-weight-light;
     line-height: 1;
-    margin-bottom: .25em;
+    margin-bottom: 0.25em;
   }
   
   .display-2 {
     font-weight: $font-sans-weight-light;
     line-height: 1.33;
-    margin-bottom: .1875em;
+    margin-bottom: 0.1875em;
   }
   
   .display-3 {
     font-weight: $font-sans-weight-light;
     line-height: 1.75;
-    margin-bottom: .125em;
+    margin-bottom: 0.125em;
   }
   
   .display-4 {
     font-weight: $font-sans-weight-light;
     line-height: 1.25;
-    margin-bottom: .375em;
+    margin-top: -0.0625em;
+    margin-bottom: 0.4375em;
   }
   
   h1,
   .h1 {
     line-height: 1.375;
     margin-top: 1.4375em;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
   
   h2,
   .h2 {
     line-height: $line-height-base;
     margin-top: 1.0625em;
-    margin-bottom: .5625em;
+    margin-bottom: 0.5625em;
   }
   
   h3,
   .h3 {
-    line-height: 1.25;
+    line-height: 1.0625;
     margin-top: 1.75em;
-    margin-bottom: 1em;
+    margin-bottom: 1.0625em;
   }
   
   h4,
   .h4 {
-    line-height: 1.5;
-    margin-top: -.375em;
-    margin-bottom: 0;
+    line-height: 1.1875;
+    margin-top: -0.125em;
+    margin-bottom: 0.125em;
   }
   
   h5,
   .h5 {
     line-height: 1.375;
-    margin-top: -.125em;
-    margin-bottom: 0;
+    margin-top: -0.0625em;
+    margin-bottom: 0.1875em;
   }
   
   h6,
@@ -138,7 +138,7 @@
   // List elements need tighter line height
   li {
     line-height: ($line-height-base - .125);
-    padding-bottom: .125em;
+    padding-bottom: .1875em;
   }
 
   // Another BS4 opinion. Table captions should be top in our opinion

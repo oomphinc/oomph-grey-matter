@@ -7,42 +7,44 @@ body-class: vertical-rhythm
 ---
 
 <!-- 	<h2 id="menu">Establish a Vertical Rhythm</h2> -->
-	<p>Use our <code>.vertical-grid</code> class to add a background that can help establish a <span>vertical rhythm</span>. The line-height of the grid should be adjusted for each project, as well as the vertical offset to align to the first element. </p>
-	<pre><code>background-image: url(http://basehold.it/i/31/cc0000);
-background-position: 0px 14px;</code></pre>
-	<p>Adjust the '31' in the first line to change the space between lines. Look at your rendered line-height on a <code>&lt;p&gt;</code> to see what the value needs to be. The adjust the position offset if needed.</p>
+	<p>Use our <code>.vertical-rhythm</code> body class to add a background that can help establish a <strong>vertical rhythm</strong>. The line-height of the grid should be adjusted for each project, as well as the padding-top to align to the first element. This site has a 18px font size and a 1.625 line height, which results in a pixel line-height of 29px. Therefore, the CSS looks like this:</p>
+	<pre><code>background: linear-gradient(#c0c 0px, #fff 1px) repeat;
+background-size: 100% 29px;
+padding-top: 8px;</code></pre>
+	<p>Adjust the '29' in the background-size line to change the space between lines. Look at the rendered line-height on a <code>&lt;p&gt;</code> to see what the value needs to be. The adjust the padding-top offset if needed.</p>
 	
 	
-	<p class="display-1">Display-1 from Bootstrap4</h1>
-	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-1</code> in action.</p>
+	<p class="display-1">Display-1 from Bootstrap4</p>
+	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-1</code> in action. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 	
-	<p class="display-2">Display-2 from Bootstrap4</h1>
-	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-2</code> in action.</p>
+	<p class="display-2">Display-2 from Bootstrap4</p>
+	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-2</code> in action. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 	
-	<p class="display-3">Display-3 from Bootstrap4</h1>
-	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-3</code> in action.</p>
+	<p class="display-3">Display-3 from Bootstrap4</p>
+	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-3</code> in action. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 	
-	<p class="display-4">Display-4 from Bootstrap4</h1>
-	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-4</code> in action.</p>
+	<p class="display-4">Display-4 from Bootstrap4</p>
+	<p>In addition to headers, Bootstrap gives us four utility classes that create text sizes larger than h1s. This is the class <code>.display-4</code> in action. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Below we get into default Heading displays for H1 through H6.</p>
 	
 	<h1 id="headings">Heading 1 <a href="#">with a Link</a> and more text to test line height wrapping</h1>
 	<p>The primary header is an <code>&lt;h1&gt;</code> element. Any header elements may include links, as depicted in the example. More than one of any type may be used per page. All of the headings follow a similar markup pattern:</p>
 	
 	<!-- <pre class="examplecode"><code>&lt;h1&gt;This is a heading of primary importance&lt;/h1&gt;</code></pre> -->
 	
-	<h2>Second-Level Header <a href="#">with a Link</a> and more text to test line height wrapping</h2>
+	<h2>Second-Level Header <a href="#">with a Link</a> and more text to test some of the line height wrapping</h2>
 	<p>The secondary header is an <code>&lt;h2&gt;</code> element, which may be used for any form of important page-level header. More than one may be used per page. Consider using an <code>h2</code> as a sub-header to the page title or an existing <code>h1</code> element.</p>
 	
-	<h3>Third-Level Header <a href="#">with a Link</a> and more text to test line height wrapping</h3>
+	<h3>Third-Level Header <a href="#">with a Link</a> and more text to test some of the line height wrapping</h3>
 	<p>The header above is an <code>&lt;h3&gt;</code> element, which may be used for any form of page-level header which falls below the <code>h2</code> header in a document hierarchy.</p>
 	
-	<h4>Fourth-Level Header <a href="#">with a Link</a> and more text to test line height wrapping</h4>
+	<h4>Fourth-Level Header <a href="#">with a Link</a> and more text to test some of the line height wrapping and such in order to check line height on the header element itself</h4>
 	<p>The header above is an <code>&lt;h4&gt;</code> element, which may be used for any form of page-level header which falls below the <code>h3</code> header in a document hierarchy.</p>
 	
-	<h5>Fifth-Level Header <a href="#">with a Link</a> and more text to test line height wrapping</h5>
+	<h5>Fifth-Level Header <a href="#">with a Link</a> and more text to test some of the line height wrapping and such in order to check line height on the header element itself</h5>
 	<p>The header above is an <code>&lt;h5&gt;</code> element, which may be used for any form of page-level header which falls below the <code>h4</code> header in a document hierarchy.</p>
 	
-	<h6>Sixth-Level Header <a href="#">with a Link</a> and more text to test line height wrapping</h6>
+	<h6>Sixth-Level Header <a href="#">with a Link</a> and more text to test some of the line height wrapping and such in order to check line height on the header element itself</h6>
 	<p>The header above is an <code>&lt;h6&gt;</code> element, which may be used for any form of page-level header which falls below the <code>h5</code> header in a document hierarchy.</p>
 	<!-- end Headings -->
 	
@@ -57,7 +59,7 @@ background-position: 0px 14px;</code></pre>
 	<h3>Another likely Pair</h3>
 	<h4>An h3 followed by this h4</h4>
 	<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<address>An address element. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </address>
+	<address>An address element. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </address>
 	<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	
 	
