@@ -83,3 +83,13 @@ More in depth Jekyll instructions here from [JekyllRB](https://jekyllrb.com/).
 
 ### Markdown
 [A markdown syntax usage guide](https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/Markdown%20Syntax.md). Daring Fireball has a really cool [online converter](http://daringfireball.net/projects/markdown/dingus) if you need troubleshooting help.
+
+
+## Updates
+Keep Ruby Gems and the Gemfile up to date. 
+
+```sh
+bundle update jekyll
+```
+
+Let this command run. All dependencies for the latest stable Jekyll release will be updated and the Gemfile.lock will be updated as well. Update any very old dependency versions in the Gemfile at your discretion. 
