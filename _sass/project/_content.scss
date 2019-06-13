@@ -16,13 +16,13 @@
   &__title {}
 
   &__main {
-    padding-bottom: map-get($spacers, 3);
+    padding-bottom: spacer(3);
   }
 
   @include media-breakpoint-up(md) {
 
     &__main {
-      padding-bottom: map-get($spacers, 4);
+      padding-bottom: spacer(4);
     }
   }
 }
