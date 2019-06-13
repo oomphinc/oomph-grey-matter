@@ -1,0 +1,11 @@
+// Global
+// Rules that BS4 does not ship with
+
+pre {
+  background-color: rgba($code-color, .1);  
+}
+
+// BS4 Reboot is opinionated and removes the user agent default italic style
+address {
+  font-style: italic;
+}
