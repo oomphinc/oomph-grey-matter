@@ -39,30 +39,33 @@ If the compiled file URLs need to have a different root path, change the `baseur
 
 ### Project Structure
 {% highlight JavaScript %}
-config.yml           // project set up and variables for base URL path
-_includes            // HTML partials
+config.yml        // project set up and variables for base URL path
+_includes         // HTML partials
 -- footer.html
 -- head.html
 -- header.html
 -- navigation.html
--- paragraphs        // specific partials for paragraph components
+-- paragraphs     // specific partials for paragraph components
 ---- body.html
 ---- etc...
-_layouts             // HTML templates
--- default.html      // Base tempalte
--- page.html         // Base content template, inherits default
--- text.html         // Base text template (constrained container), inherits default
-_plugins             // RB files for Jekyll plugins
-_sass                // The gold
-_site                // Rendered static HTML (not under version control)
-assets               // Static assets
+_layouts          // HTML templates
+-- default.html   // Base tempalte
+-- page.html      // Base content template, inherits default
+-- text.html      // Base text template (constrained container), inherits default
+_plugins          // RB files for Jekyll plugins
+_sass             // The Gold
+_site             // Rendered static HTML (not under version control)
+assets            // Static assets
 -- css
----- greymatter.scss // Jekyll pipeline converts this to CSS on render
+---- greymatter.sc// Jekyll pipeline converts this to CSS on render
 -- img
 -- js
-feed.xml             // Sample file type XML
-Gemfile              // Project dependency manager
+feed.xml          // Sample file type XML
+Gemfile           // Project dependency manager
 Gemfile.lock
+[any].html        // File rendered as HTML following the directives defined
+                  // at the top of the file in "Liquid" syntax
+[any].md          // File rendered from Markdown into HTML
 etc...
 {% endhighlight %}
 
