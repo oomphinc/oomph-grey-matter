@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", ">=3.8.0"
+gem "jekyll", ">=3.8.5"
 gem "jekyll-watch", ">=2.0.0"
+gem "jekyll-sass-converter", ">=1.3.0"
 gem 'jekyll-autoprefixer', ">=1.0.0"
 gem "jekyll-assets", ">=3.0.0"
 gem "liquid", ">=4.0.0"
