@@ -1,0 +1,36 @@
+// External or internally hosted fonts
+// Two ways we can go about adding custom fonts: 
+
+// ## Hosted Google fonts
+// Drop the @import tag here and define the font families
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap');
+
+$font-custom-family: 'Playfair Display';
+$font-custom-weight-normal: 400;
+$font-custom-weight-bold: 700;
+
+$project-lineheight-base: 1.4;
+$project-lineheight-loose: 1.625;
+$project-lineheight-tight: 1.125;
+
+// Reference these variables in bs4_vars/bs4-typography to apply them
+
+
+// ## Self-host fonts with a font-face declaration
+
+// $font-path: 'relative/to/the/css-location/';
+// $font-custom-family: 'Playfair Display';
+// $font-custom-weight-normal: 400;
+// $font-custom-weight-bold: 700;
+// 
+// // Use one declaration for each style and change the weight/style accordingly
+// @font-face {
+//   font-family: $font-custom-family;
+//   src: url('#{$font-path}font-name.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('#{$font-path}font-name.woff2') format('woff2'), /* Super Modern Browsers */
+//        url('#{$font-path}font-name.woff') format('woff'), /* Pretty Modern Browsers */
+//        url('#{$font-path}font-name.ttf')  format('truetype'); /* Safari, Android, iOS */
+//   font-weight: $font-custom-weight-normal;
+//   font-style: normal;
+// }

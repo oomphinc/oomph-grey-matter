@@ -7,17 +7,8 @@
 // To change the load path, go to _config.yml and change the value of 'sass_dir'
 
 
-// Our functions and helpers
-@import 'abstracts/functions';
-@import 'abstracts/mixins/fluid-units';
-@import 'abstracts/mixins/fluid-typography';
-@import 'abstracts/mixins/maintain-ratio';
-
-
-// Reset variables
-// Bootstrap 4 requires that any customized variables are defined before Bootstrap is loaded.
-@import 'abstracts/bs4-variables';
-
+// Our functions, mixins, project vars, and bs4 vars
+@import 'abstracts/index';
 
 // #Bootstrap
 // https://getbootstrap.com/docs/4.0/getting-started/theming/
@@ -26,15 +17,10 @@
 
 // Prototyping
 // Helpers and useful little items for building sites
-@import 'prototyping/code-highlight';
-@import 'prototyping/fontawesome';
-@import 'prototyping/header-links';
-@import 'prototyping/viewport-size';
+@import 'prototyping/index';
 
 
 // Finally, include any custom stuff for this project
-@import 'project/global';
-@import 'project/content';
-@import 'project/responsive-type';
-@import 'project/typography';
-@import 'project/paragraphs';
+@import 'base/index';
+@import 'layout/index';
+@import 'project/index';

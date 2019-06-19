@@ -1,0 +1,12 @@
+//
+// Layout
+//
+
+// MOst of the actual layout is handled by BS4 and grid utility classes
+
+// Template variations
+.layout-text {
+  .layout__main > .container {
+    max-width: $project-maxwidth-text;
+  }
+}

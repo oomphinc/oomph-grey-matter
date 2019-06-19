@@ -1,0 +1,161 @@
+// Resets of Bootstrap
+
+// BS4 does "bolder" for some reason that does not work with our custom fonts
+b,
+strong {
+  font-weight: $font-custom-weight-bold;
+}
+
+// All custom typography NOT handled by Bootstrap
+
+// All display and utility classes
+//.display-1,
+//.display-2,
+//.display-3,
+//.display-4 {}
+
+.display-1 {
+  @include fluid-type-sizes('display-1');
+}
+
+.display-2 {
+  @include fluid-type-sizes('display-2');
+}
+
+.display-3 {
+  @include fluid-type-sizes('display-3');
+}
+
+.display-4 {
+  @include fluid-type-sizes('display-4');
+}
+
+// All headers and utility classes
+//h1,
+//.h1,
+//h2,
+//.h2,
+//h3,
+//.h3,
+//h4,
+//.h4,
+//h5,
+//.h5,
+//h6,
+//.h6 {}
+
+// Set Type fluidly
+h1,
+.h1 {
+  @include fluid-type-sizes('h1');
+}
+
+h2,
+.h2,
+.pull-quote__left,
+.pull-quote__right {
+  @include fluid-type-sizes('h2');
+}
+
+h3,
+.h3,
+.lead {
+  @include fluid-type-sizes('h3');
+}
+
+h4,
+.h4 {
+  @include fluid-type-sizes('h4');
+}
+
+h5,
+.h5 {
+  @include fluid-type-sizes('h5');
+}
+
+h6,
+.h6 {
+  @include fluid-type-sizes('h6');
+}
+
+// Yes, BS4 has a .small class, but it does not follow typical naming conventions
+.text-small {
+  @include fluid-type-sizes('small');
+}
+
+// Base size applied to elements (not containers)
+p,
+blockquote,
+address,
+li,
+dt,
+dd,
+label,
+input,
+.btn,
+.text-normal {
+  @include fluid-type-sizes('base', false);
+}
+
+// Margin bottoms
+//p already declared properly via BS4
+blockquote,
+address,
+ul,
+ol,
+dl {
+  margin-bottom: $paragraph-margin-bottom;
+}
+
+a,
+button {
+  transition: $project-transition;
+}
+
+.display-1 {
+  margin-bottom: ($paragraph-margin-bottom / 4);
+}
+
+.display-2 {
+  margin-bottom: ($paragraph-margin-bottom / 3);
+}
+
+.display-3 {
+  margin-bottom: ($paragraph-margin-bottom / 2);
+}
+
+// Similar to BS4's .initialism, but not as small + kerning
+.text-abbr {
+  font-size: 93.75%;
+  letter-spacing: $project-kerning;
+  text-transform: uppercase;
+}
+
+.initial-indent {
+  text-indent: em(36);
+
+  & + & {
+    margin-top: - $paragraph-margin-bottom;
+  }
+}
+
+.initial-cap {
+  &::first-letter {
+    float: left;
+    font-size: 500%;
+    line-height: 1;
+    margin-top: -0.125em;
+    padding-right: 1rem;
+    text-transform: uppercase; // Just in case
+
+    @include for-any-firefox {
+      margin-top: 0.0625em;
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+// BS4 has .text-white but no black
+.text-black {
+  color: $black;
+}
