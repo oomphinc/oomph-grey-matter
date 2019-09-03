@@ -1,0 +1,7 @@
+// Establishing some vertical rhythm for block elements
+// We use em so that they scale based on the font size of the element and breakpoint
+$project-vertical-rhythm: ($project-lineheight-base * 1rem);
+
+// Horizontal spacing
+$project-gutter: 1rem;
+
