@@ -23,7 +23,7 @@ $project-maxwidths: (
   @return map-get($project-breakpoints, $bp);
 }
 
-// Breakpoints expressed in PX, math in EMs
+// Breakpoints expressed unitless in PX, math in PX because BS4 prefers that
 $project-bp-xs: px(bp(base));
 $project-bp-sm: px(bp(small));
 $project-bp-md: px(bp(medium));
