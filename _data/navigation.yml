@@ -1,0 +1,25 @@
+# Manage navigation here instead of in an HTML file
+
+- title: "Intro"
+  href: "/"
+
+- title: "Oomph Mixins"
+  href: "mixins"
+  children:
+    - title: "Text Clamping"
+      href: "mixins/clamping"
+    - title: "Fluid Units"
+      href: "mixins/fluid-units"
+    - title: "Fluid Typography"
+      href: "mixins/fluid-type"
+    - title: "Brower Hacks"
+      href: "mixins/hacks"
+
+- title: "BS4 Grid"
+  href: "grid"
+
+- title: "All HTML"
+  href: "sample-html"
+
+- title: "Vertical Rhythm"
+  href: "sample-rhythm"
