@@ -6,34 +6,6 @@ permalink: sample-html/
 body-class: sample-html
 ---
 
-<style>
-/* For the style guide */
-.example { 
-  position: relative; 
-  background-color: #fff;
-  border: 1px solid #e6e6e6; 
-  padding: 1em 1em 0em; 
-  margin-bottom: 1.25em; 
-  box-shadow: 0 0 .75em rgba( 0,0,0,0.15 ); 
-}
-.example:before {
-  content: 'EXAMPLE'; 
-  position: absolute; 
-  top: 0; right: 0; 
-  z-index: 9999; 
-  font-size: .75em; 
-  color: #fff; 
-  background-color: #303030;
-  padding: .4em .75em .3em; 
-} 
-.examplecode {
-  background-color: #f2f2f2;
-  padding: 1.125em;
-}
-.example + .examplecode { margin-top: -1.25em; }
-.element-caption { display: block; }
-</style>
-
 <h1 id="menu">Style Guide and Sample Code</h1>
 <p><strong>These are basic markup and typographic styles for your site and how to use them.</strong> Most of these options are available through the TinyMCE edit window in the admin, but some will require knowledge of coding HTML. </p>
 
@@ -187,7 +159,7 @@ p q r s t u v w x y z { | } ~</code></pre>
 &lt;/dl&gt;</code></pre>
 
 <h3 id="figure">Figures</h3>
-<p>Figures are usually used to refer to images:</p>
+<p>Figures are usually used to refer to images. They can also be used to wrap a Blockquote, which can be quite nice semantics:</p>
 <div class="example">
   <figure>
     <img src="http://placekitten.com/720/300" alt="The internet loves kittens">
@@ -199,7 +171,7 @@ p q r s t u v w x y z { | } ~</code></pre>
   &lt;figcaption&gt;This is a placekitten image, with supporting caption.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
 
-<p>Here, a part of a poem is marked up using figure. A <code>cite</code> element surrounds the name of the text being referred to:</p>
+<p>Here, a part of a poem is marked up using figure. A <code>cite</code> element surrounds the name of the text source:</p>
 <div class="example">
   <figure>
     <p>‘Twas brillig, and the slithy toves<br>
