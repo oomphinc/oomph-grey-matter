@@ -11,20 +11,27 @@
 /// @param {String} Element name [base]
 ///
 /// @example scss - Usage
-///    font-size: px(one-type-size('h1', 'x-large'));
+///    font-size: px(one-type-size('x-large', 'h1'));
 ///
 /// @example css - Output
 ///    font-size: 31px;
 ///
-@function one-type-size($element, $break: small) {
+@function one-type-size($element, $break: null, $unit: 1rem) {
+  @if $break == null {
+    // No breakpoint name is defined, so grab the first one
+    $keys: map-keys($type-sizes);
+    $break: nth($keys, 1);
+  }
   @if type-of($type-sizes) != 'map' {
     @error 'A list named $type-sizes is undefined. [Function one-type-size()]';
   }
   @if type-of(map-get($type-sizes, $break)) != 'map' {
-    @error 'Can’t reach into $type-sizes to retreive the $break [#{$break}] map. [Function one-type-size()]';
+    @error 'Can’t reach into the $type-sizes map for another map. [Function one-type-size()]';
   }
   $elementsize: map-get(map-get($type-sizes, $break), $element);
-  @return $elementsize;
+  
+  // Not sure I like this. We assume pixels in and REM/EM out with this math
+  @return strip-unit(rem($elementsize)) * $unit;
 }
 
 
@@ -32,6 +39,7 @@
 /// @author jhogue
 ///
 /// @require {map} $type-sizes
+/// @require {map} $project-breakpoints
 ///
 /// @require {function} type-of
 /// @require {function} map-keys
@@ -46,6 +54,7 @@
 /// @require {mixin} fluid-units
 ///
 /// @param {String} Element name [base]
+/// @param {String} Render mobile values [true]
 ///
 /// @example scss - Usage
 ///   @include one-element-size(h1);
@@ -65,9 +74,9 @@
 ///     }
 ///   }
 ///
-@mixin fluid-type-sizes($elem: 'base', $bootstrap: true) {
+@mixin fluid-type-sizes($elem: 'base', $mobile: true) {
   @if type-of($type-sizes) != 'map' {
-    @error 'A sass map named $type-sizes is undefined. [Mixin one-element-size()]';
+    @error 'A list named $type-sizes is undefined. [Mixin one-element-size()]';
   }
 
   // List only the keys from the $type-sizes list.
@@ -76,12 +85,12 @@
   $first-key: nth($keys, 1);
   $last-key: nth($keys, length($keys));
 
-  // Type size as REM values but unitless
-  $min-value: strip-unit(rem(one-type-size($elem, $first-key)));
-  $max-value: strip-unit(rem(one-type-size($elem, $last-key)));
+  // Change these key values into a typographic value
+  // by getting the matching key/value pair from the $type-sizes array
+  $min-value: strip-unit((one-type-size($elem, $first-key)));
+  $max-value: strip-unit((one-type-size($elem, $last-key)));
 
-  // Use the keys to grab the corresponding breakpoints
-  // Check for existence and naming convention first
+  // Use the same keys to grab the corresponding breakpoints
   @if type-of($project-breakpoints) != 'map' {
     @error 'A list named $project-breakpoints is undefined. [Mixin one-element-size()]';
   }
@@ -92,29 +101,14 @@
     @error 'Your $type-sizes map key "#{$last-key}" does not have a corresponding key in $project-breakpoints. [Mixin one-element-size()]';
   }
 
-  // We need the bp value to be expressed as REM but unitless
-  $min-vw: strip-unit(rem(map-get($project-breakpoints, $first-key)));
-  $max-vw: strip-unit(rem(map-get($project-breakpoints, $last-key)));
-  $unit: 1rem;
+  $min-vw: strip-unit(rem(bp($first-key)));
+  $max-vw: strip-unit(rem(bp($last-key)));
 
   // Finally, use this mixin to set the base size and max size within the viewport range
-
-  // If this is bootstrap, don't output the first default type size
-  @if ($bootstrap == false) {
-    font-size: calc(#{$min-value} * $unit);
-  }
-
-  // If both are the same value, don't output the media queries
-  @if map-get(map-get($type-sizes, $first-key), $elem) != map-get(map-get($type-sizes, $last-key), $elem) {
-
-    // Declare the creamy, fluid center using a media query at the min-width
-    @media (min-width: #{$min-vw * $unit}) {
-      font-size: calc((#{$min-value} * #{$unit}) + (#{$max-value} - #{$min-value}) * ((100vw - #{$min-vw * $unit}) / #{$max-vw - $min-vw}));
-    }
-
-    // Finally, stop the crazy fluidity and set the max value at the max viewport width
-    @media (min-width: #{$max-vw * $unit}) {
-      font-size: calc(#{$max-value} * #{$unit});
-    }
+  @if $min-value != $max-value {
+    // Min and Max are different, so output the crazy calc function
+    @include fluid-units('font-size', $min-value, $max-value, $min-vw, $max-vw, 1rem, $mobile);
+  } @else {
+    font-size: ($min-value * 1rem);
   }
 }

@@ -13,10 +13,6 @@ $focus-outline-style: solid;
 $toolbar-fixed: 39px;
 $toolbar-tray-open: 82px;
 
-// Establishing some vertical rhythm for block elements
-// We use em so that they scale based on the font size of the element and breakpoint
-$project-vertical-rhythm: ($project-lineheight-base * 1em);
-
 // Z Indices
 $z-indices: (
   base: 1,

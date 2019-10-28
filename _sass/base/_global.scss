@@ -2,10 +2,40 @@
 // Rules that BS4 does not ship with
 
 pre {
-  background-color: rgba($code-color, .1);  
+  background-color: rgba($code-color, 0.1);
+  border-top: 3px solid rgba($code-color, 0.5);
+  border-bottom: 3px solid rgba($code-color, 0.5);
+  line-height: 1.8;
+  padding: 1.5rem $project-gutter;
+  margin-bottom: 1.375rem;
 }
 
 // BS4 Reboot is opinionated and removes the user agent default italic style
 address {
   font-style: italic;
+}
+
+// BS4 has .text-white but no black
+.text-black {
+  color: $black;
+}
+
+// Custom globals
+.parenthetical {
+  background-color: percent-color($yellow, 25);
+  padding: 1.5rem $project-gutter 0.125rem;
+  margin-bottom: 1.625rem;
+}
+
+// Utility for Line Clamping
+.u-single-line-clamp {
+  @include single-line-clamp(100%);
+}
+
+.u-multi-line-clamp {
+  @include multi-line-clamp(2);
+}
+
+.lead.u-multi-line-clamp {
+  @include multi-line-clamp(2, rem(map-get(map-get($type-sizes, x-large), h3)));
 }

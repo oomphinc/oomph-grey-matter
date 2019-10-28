@@ -27,23 +27,23 @@ $line-height-sm: $project-lineheight-tight;
 
 // Set the base sizes — the Mobile sizes
 // The mixin should grab the value defined for "base" in our "type-sizes" map
-$h1-font-size: rem(one-type-size(h1));
-$h2-font-size: rem(one-type-size(h2));
-$h3-font-size: rem(one-type-size(h3));
-$h4-font-size: rem(one-type-size(h4));
-$h5-font-size: rem(one-type-size(h5));
-$h6-font-size: rem(one-type-size(h6));
+$h1-font-size: one-type-size(h1);
+$h2-font-size: one-type-size(h2);
+$h3-font-size: one-type-size(h3);
+$h4-font-size: one-type-size(h4);
+$h5-font-size: one-type-size(h5);
+$h6-font-size: one-type-size(h6);
 
-//$headings-margin-bottom: ($spacer / 2);
+$headings-margin-bottom: $project-vertical-rhythm;
 //$headings-font-family: inherit;
 $headings-font-weight: $font-weight-normal;
 $headings-line-height: $line-height-sm;
 //$headings-color: inherit;
 
-$display1-size: rem(one-type-size(display-1));
-$display2-size: rem(one-type-size(display-2));
-$display3-size: rem(one-type-size(display-3));
-$display4-size: rem(one-type-size(display-4));
+$display1-size: one-type-size(display-1);
+$display2-size: one-type-size(display-2);
+$display3-size: one-type-size(display-3);
+$display4-size: one-type-size(display-4);
 
 //$display1-weight: $headings-font-weight;
 //$display2-weight: $headings-font-weight;
@@ -51,10 +51,10 @@ $display4-size: rem(one-type-size(display-4));
 //$display4-weight: $headings-font-weight;
 //$display-line-height: $headings-line-height;
 
-$lead-font-size: rem(one-type-size(h3));
+$lead-font-size: one-type-size(h3);
 $lead-font-weight: $font-weight-bold;
 
-$small-font-size: rem(one-type-size(small));
+$small-font-size: one-type-size(small);
 
 //$text-muted: $gray-600;
 

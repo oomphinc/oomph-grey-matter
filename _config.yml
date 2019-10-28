@@ -1,12 +1,10 @@
 title: Oomph Grey Matter
 description: A wireframe system for quick HTML/SASS prototypes
   
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
-baseurl: '/grey-matter/'
+baseurl: '/oomph-grey-matter/'
 port: 4040
 url: //jhogue.dev.oomphcloud.com
 twitter_handle: oomphinc

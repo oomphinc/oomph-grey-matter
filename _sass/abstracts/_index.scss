@@ -2,6 +2,7 @@
 
 // Helpful functions and mixins for every project
 @import 'functions';
+@import 'mixins/clamping';
 @import 'mixins/fluid-units';
 @import 'mixins/fluid-typography';
 @import 'mixins/hacks';
@@ -13,6 +14,7 @@
 // Project Variables — things that need to be defined before BS4
 @import 'project-vars/breakpoints';
 @import 'project-vars/colors';
+@import 'project-vars/spacing';
 @import 'project-vars/type-sizes';
 @import 'project-vars/vars';
 

@@ -1,29 +1,19 @@
 	{% assign pages = site.pages | sort:'nav-title' %}
-	<footer class="layout__foot mt-3 border-top py-2 pt-md-3 pt-lg-4">
-		<div class="container">
-			
-			<ul class="nav justify-content-center mb-2 mb-md-3 mb-lg-4" role="navigation">
-        <li class="nav-item"><a href="#" class="nav-link disabled">All pages:</a></li>
-        {% for p in pages %}
-				<li class="nav-item">
-  				<a href="{{ site.baseurl}}{{ p.permalink }}" class="nav-link{% if page.url == p.url %} active{% endif %}">{% if p.nav-title %}{{ p.nav-title }}{% else %}{{ p.title }}{% endif %}</a>
-				</li>
-				{% endfor %}
-      </ul>
-			
-			<p class="text-center small">&copy;{{ 'now' | date: '%Y' }} Oomph, Inc.</p>
-		</div>
+	<footer class="main__footer layout__foot mt-3 border-top py-2 pt-md-3 pt-lg-4">
+		<nav class="navbar navbar-expand-lg navbar-light navbar--footer">
+  		{% include navigation.html %}
+		</nav>
+		<p class="text-center small">&copy;{{ 'now' | date: '%Y' }} Oomph, Inc.</p>
 	</footer>
 
 	<div id="size"></div>
 
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
   {% comment %}
     If using Bootstrap Tooltips, load this file as well
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    
-    Include all the BS4 JS modules via CDN:
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
     Below: 
     1. Our projects JS plugins. Cut and paste the libraries here
