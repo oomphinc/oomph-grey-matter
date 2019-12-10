@@ -10,7 +10,7 @@ Browser Hacks are a necessary evil sometimes. As a team, Oomph is pretty good at
 
 We document the hacks that we use in this file. It can be a bit of work to get them to pass the linter, but once they do, we want to be sure that other people can use them should they need them. So please, **if you add a hack, contribute it back**! 
 
-{% highlight SASS %}
+{% highlight Ruby %}
 -sass
 -- abstracts
 --- mixins
@@ -25,7 +25,7 @@ We document the hacks that we use in this file. It can be a bit of work to get t
 These are **content** includes which means that they do not have any parameters and you pass rules through them like you would `media-breakpoint()` mixins from Bootstrap. They pass specific rules to specific browsers: 
 
 #### Usage:
-{% highlight SASS %}
+{% highlight Ruby %}
 .element {
   @include hack-for-old-ie() {
     height: 3rem;
