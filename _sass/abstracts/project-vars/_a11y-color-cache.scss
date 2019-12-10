@@ -1,0 +1,13 @@
+// Store problematic color combinations that have been calculated or corrected 
+
+// Format: 
+//   (Base FG color, Base BG color (non-passing): Results of A11y Mixin (passing))
+// )
+
+$a11y-cache: (
+  (#0094c2, #fff, #00607e),
+  (#0094c2, #ababab, #00465c), 
+  (#E35B34, #fff, #d54319),
+  (#E35B34, #f0f0f0, #c63c15),
+  (#E35B34, #ababab, #792107),
+);

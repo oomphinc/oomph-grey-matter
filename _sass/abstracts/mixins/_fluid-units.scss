@@ -52,6 +52,12 @@
 /// Actual mixin
 @mixin fluid-units($properties, $min-value, $max-value, $min-vw, $max-vw, $unit: 1rem, $mobile: true) {
   
+  // Strip units if not unitless
+  $min-value: strip-unit($min-value);
+  $max-value: strip-unit($max-value);
+  $min-vw: strip-unit($min-vw);
+  $max-vw: strip-unit($max-vw);
+  
   // Mobile-first: declare the $min-value as the default for any property passed
   @if ($mobile == true) {
     @each $property in $properties {
