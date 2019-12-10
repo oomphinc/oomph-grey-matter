@@ -1,0 +1,215 @@
+---
+layout: text
+title: "Accessible Color Contrast"
+nav-title: Color Contrast
+permalink: functions/color-contrast/
+body-class: functions
+---
+
+<aside class="parenthetical">
+  <h4><i>Using this in Production?</i></h4>
+  <p>Jump down to the section <a href="#caveat">about the caveats of this mixin</a> and ways to mitigate long compile times. </p>
+</aside>
+
+<h2>Automated Color Contrast Ratios</h2>
+<p>Input a foreground color, background color, and desired WCAG Level to get back an adjusted foreground color that passes the chosen WCAG Level for color contrast ratio.</p>
+
+<pre><code><em class="text-success">// Usage, where: 
+  // $text-color is the desired color which will be changed
+  // $background is the unchanged color
+  // $level is the WCAG level desired, default 'AA'
+  // $size is the font-size to consider, default 16
+  // $bold is whether or not the font is bold, default false</em>
+  $text-color: #0094c2;
+  $background: #fff;
+  .example {
+    background-color: $background;
+    color: a11y-color($text-color, $background, $level: 'AA', $size: 16, $bold: false);
+  }
+  <em class="text-success">// Which will output:</em>
+  .example {
+    background-color: #fff;
+    color: #00607e;
+  }
+</code></pre>
+
+<div class="color">
+  <div class="color__swatch color__swatch--fg1">fg-1</div>
+  <div class="color__swatch color__swatch--fg2">fg-2</div>
+  <div class="color__swatch color__swatch--bg1">bg-1</div>
+  <div class="color__swatch color__swatch--bg2">bg-2</div>
+  <div class="color__swatch color__swatch--bg3">bg-3</div>
+</div>
+
+<div class="ally">
+  <div class="ally__item ally-fg1-bg1">
+    <p>BEFORE: Foreground 1 over background 1: AAA target, 16px text, not bold</p>
+  </div>
+  <div class="ally__item pair-fg1-bg1">
+    <p>AFTER: Foreground 1 over background 1: AAA target, 16px text, not bold</p>
+  </div>
+  
+  <div class="ally__item ally-fg1-bg2">
+    <p style="font-size: 19px;"><b>BEFORE: Foreground 1 over background 2: AA target, 19px text, bold</b></p>
+  </div>
+  <div class="ally__item pair-fg1-bg2">
+    <p style="font-size: 19px;"><b>AFTER: Foreground 1 over background 2: AA target, 19px text, bold</b></p>
+  </div>
+  
+  <div class="ally__item ally-fg1-bg3">
+    <p>BEFORE: Foreground 1 over background 3: AA target, 16px text, not bold</p>
+  </div>
+  <div class="ally__item pair-fg1-bg3">
+    <p>AFTER: Foreground 1 over background 3: AA target, 16px text, not bold</p>
+  </div>
+  
+  <div class="ally__item ally-fg2-bg1">
+    <p>BEFORE: Foreground 2 over background 1: AA target, 16px text, not bold</p>
+  </div>
+  <div class="ally__item pair-fg2-bg1">
+    <p>AFTER: Foreground 2 over background 1: AA target, 16px text, not bold</p>
+  </div>
+  
+  <div class="ally__item ally-fg2-bg2">
+    <p style="font-size: 19px;">BEFORE: Foreground 2 over background 2: AAA target, 19px text, not bold</p>
+  </div>
+  <div class="ally__item pair-fg2-bg2">
+    <p style="font-size: 19px;">AFTER: Foreground 2 over background 2: AAA target, 19px text, not bold</p>
+  </div>
+  
+  <div class="ally__item ally-fg2-bg3">
+    <p>BEFORE: Foreground 2 over background 3: AA target, 16px text, not bold</p>
+  </div>
+  <div class="ally__item pair-fg2-bg3">
+    <p>AFTER: Foreground 2 over background 3: AA target, 16px text, not bold</p>
+  </div>
+</div>
+
+<h2>Explanation</h2>
+<p>An accessible Color Contrast is important for legibility. Often, a company’s brand color palette does not take this into account. Further, the color behind a foreground text color will effect its ability to pass for sufficient contrast ratio. This set of functions provides programmatic SASS to achieve passing color contrast tests. It allows the theme engineer to pass colors and optional parameters to get the results that pass the desired threshold. Sensible defaults are in place. </p>
+
+<h3>More about WCAG Color Contrast levels</h3>
+<p>WCAG 2.1 guidelines dictate a minimum contrast ratio of 4.5:1 for the visual presentation of both text and images embedded as text. Large text (18 point, 14 point if bold, and larger font sizes plus images of very large text) requires a 3:1 contrast ratio.</p>
+<p>14 point text is equivalent to 19px. 18 point text is equivalent to 24px. Therefore:</p>
+<ul>
+  <li>Level AA: Text 24px and larger <b>or 19px and larger if bold</b> should have a CCR of 3:1</li>
+  <li>Level AA: Text 23px and smaller should have a CCR of 4.5:1</li>
+  <li>Level AAA: Text 24px and larger <b>or 19px and larger if bold</b> should have a CCR of 4.5:1</li>
+  <li>Level AAA: Text 23px and smaller should have a CCR of 7:1</li>
+</ul>
+<p>There are no contrast requirements for logotypes and incidental text — text that has no context to the website's core purpose. This would include text for decoration and iconography alongside descriptive text. Inactive elements — like a button in a disabled state — are identified by their low contrast and therefore are not required to meet minimum. </p>
+
+<h2>How Does it Work?</h2>
+<p>Well, that’s an interesting story. Strap in, because it is a complicated one.</p>
+
+<h3>Color Luminance: A weighted average of a colors RBG channels</h3>
+<p>The W3 <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef">defines the formula for contrast ratio</a> thusly: </p>
+
+<pre><code>L = 0.2126 * R + 0.7152 * G + 0.0722 * B
+  
+  <em class="text-success">// where R, G and B are defined as:</em>
+  if RsRGB <= 0.03928 then R = RsRGB/12.92 else R = ((RsRGB+0.055)/1.055) ^ 2.4
+  if GsRGB <= 0.03928 then G = GsRGB/12.92 else G = ((GsRGB+0.055)/1.055) ^ 2.4
+  if BsRGB <= 0.03928 then B = BsRGB/12.92 else B = ((BsRGB+0.055)/1.055) ^ 2.4
+  
+  <em class="text-success">//and RsRGB, GsRGB, and BsRGB are defined as:</em>
+  RsRGB = R8bit/255
+  GsRGB = G8bit/255
+  BsRGB = B8bit/255
+</pre></code>
+
+<p>That’s easy to follow, right? Basically, it calculates the color’s luminance by weighting the RBG channels differently based on how human eyes perceive color. It divides each channel by 255, does an if/else calculation where it either divides the part further or divides and then multiplies by a decimal exponent of 2.4 (that’s the tricky part for SASS to do). The result is a decimal number from 0 to 1, where 0 is the luminance of black and 1 is the luminance of white. The <code>luminance($color)</code> function conducts this magic. </p>
+<p>Turns out that math is hard (for SASS compilers). I dont’t shy away from math generally, but when it gets into complex algorithms my brain tends to heat up and fuzz out. Luckily, there are many people smarter than me who figured out how to raise a number to an fractional power (which is like raising to a power and then getting the square root of it). I started with <a href="https://gist.github.com/voxpelli/6304812" target="_blank">a promising gist</a> but suffered from some performance issues. </p>
+<p>Then through a series of links I found <a href="https://www.sassmeister.com/gist/5bbe8480c48e2fc10ab" target="_blank">this person's more complex but faster compiling version</a> of <code>pow()</code> function. Then I noticed that Hugo Giraudel noted <a href="https://css-tricks.com/snippets/sass/power-function/" target="_blank">the same sort of functions at the bottom of a CSS-Tricks post</a>. And we were off to the races. </p>
+
+<h3>Compare the luminosity of two colors</h3>
+<p>Now that we can calculate the color luminance of one color, we need to compare the luminance of two colors to get the typical contrast ratio that we expect and that the WCAG uses to determine “readability”. Again, <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef" target="_blank">the W3 provides a formula for that</a>: </p> 
+
+<pre><code>(L1 + 0.05) / (L2 + 0.05)
+
+  <em class="text-success">// Where: 
+  // L1 is the relative luminance of the lighter of the colors, and
+  // L2 is the relative luminance of the darker of the colors.</em>
+</code></pre>
+<p>This will output the values that we know and love, in the form of a decimal — i.e. 3.0, 4.5, and 7.0. We can then compare them to the ratios that we want to target. The <code>color-contrast($color1, $color2)</code> creates this ratio for us.</p>
+
+<h3>Various Helpers along the Way</h3>
+<p>There is a <code>get-ratio($level, $size, $bold)</code> function that we call to determine via a logic tree which WCAG ratio we want to measure against. Like the explanation further above, if AAA is being requested and the font size is small, its one value, but if the font size is large it is another value. There are sensible defaults set here so that not every variable need to be passed through.</p>
+<p>There is a <code>light-or-dark($color)</code> function that uses a YIQ formula to determine if a color is light or dark. I could not figure out how to use Luminance to do this and maybe they are not the same thing. </p>
+<p>There is a <code>validate-font-size($size)</code> function that takes in a font size with a unit and changes it to the unitless pixel value that we expect to use in the <code>get-ratio()</code> function.</p>
+
+<h3>The workhorse A11y-Contrast function</h3>
+<p>The final function does quite a bit, and it is best to run through it almost line by line:</p>
+
+<pre><code><em class="text-success">// Our function call, with only two required parameters for color
+// The rest are set to sensible defaults</em>
+@function a11y-color($fg, $bg, $level: 'AA', $size: 16, $bold: false) {
+  $font-size: validate-font-size($size);
+  $ratio: get-ratio($level, $font-size, $bold);
+  
+  <em class="text-success">// If we pass color contrast ratio already, return the original color
+  // color-contrast() returns a decimal integer
+  // get-ratio() returns one of three values: 3.0, 4.5, 7.0</em>
+  @if color-contrast($fg, $bg) >= $ratio {
+    <em class="text-success">// Success! This color combination already passes</em>
+    @return $fg;
+  } @else {
+    <em class="text-success">// Nope, does not pass yet. Time to go to work:</em>
+    
+    <em class="text-success">// Should the color be lightened or darkened?
+    // Set a step value. Higher values are faster, but might overstep the desired threshold</em>
+    $step: 1%;
+    <em class="text-success">// Set a lightness step to use in a scale-color() function later</em>
+    $light-step: $step;
+    <em class="text-success">// In addition to changing lightness, move the needle on saturation as well
+    // Keep it uncoupled from lightness, though, since it should not increase as much</em>
+    $sat-step: 1%;
+    <em class="text-success">// Are the colors passed through light or dark?</em>
+    $fg-yiq: light-or-dark($fg);
+    $bg-yiq: light-or-dark($bg);
+    @if $fg-yiq == light and $bg-yiq == light {
+      <em class="text-success">// Both are light colors, darken the fg</em>
+      $light-step: - $step;
+    } @else if $fg-yiq == dark and $bg-yiq == light {
+      <em class="text-success">// bg is light, fg is dark but does not pass, darken more</em>
+      $light-step: - $step;
+    }
+    <em class="text-success">// Keeping the rest of the logic here, but since our default values do not change, these are not needed
+    //@else if $fg-yiq == light and $bg-yiq == dark {
+    //  // bg is dark, fg is light but does not pass, lighten further
+    //  $light-step: $step;
+    //} @else if $fg-yiq == dark and $bg-yiq == dark {
+    //  // both are dark, so lighten the fg
+    //  $light-step: $step;
+    //}</em>
+    
+    <em class="text-success">// @while continues to evaluate until the expression is FALSE</em>
+    @while color-contrast($fg, $bg) < $ratio {
+      <em class="text-success">// Scale the color bit by bit until we can pass the ratio target</em>
+      $fg: scale-color($fg, $lightness: $light-step, $saturation: $sat-step);
+    }
+    @return $fg;
+  }
+}
+</code></pre>
+
+
+<h2>Acknowledgments</h2>
+<p>Credit to Lea Verou and her <a href="https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js">Color.js</a> for direction and others who provided <a href="http://www.sassmeister.com/gist/ad6e6771df050ff3727f">complicated math functions</a> and inspiration to try calculating luminance in multiple ways. Finding an efficient set of functions to compute decimal exponents (“pow” functions) was the most difficult. </p>
+
+
+<h2 id="caveat">Caveats on usage</h2>
+<p>This process slows down SASS build time significantly, which is too bad. The math required to process as well as the <code>@while</code> loop take compile time from under a second to more than 5 seconds or much more depending on how many colors it is calculating. And SASS does not easily cache values that have already been compiled. </p>
+<p>The original intent of this mixin was to calculate an appropriate passing color combination without storing another variable in the theme colors file. Unfortunately, the way to speed up the results of this mixin are to store the values created. Therefore, we have created a <code>cache()</code> file that can help speed up this mixin without requiring that the colors be saved in the theme file as variables. </p>
+
+<pre><code><em class="text-success">// In abstracts/project-vars/_a11y-color-cache.scss:</em>
+$a11y-cache: (
+  <em class="text-success">// ($fg, $bg, previous-result)</em>
+  (#0094c2, #fff, #00607e),
+  (#0094c2, #ababab, #00465c), 
+  (#E35B34, #f0f0f0, #c63c15),
+  (#E35B34, #ababab, #792107),
+);
+<em class="text-success">// Where each list represents a foreground/background value pair and the 
+// results of a previous run of this mixin.</em>
+</code></pre>
