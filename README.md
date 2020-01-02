@@ -89,10 +89,23 @@ More in depth Jekyll instructions here from [JekyllRB](https://jekyllrb.com/).
 
 
 ## Updates
-Keep Ruby Gems and the Gemfile up to date. 
+Keep Ruby Gems and the Gemfile up to date. But update dependencies carefully. Update all might meant that you get a newer dependency than another can handle. 
 
 ```sh
-bundle update jekyll
+# A conservative update. Nothing may change. Pay attention to the output, which should include versions of all dependencies installed. 
+bundle install
+
+# Update ALL gems. Might not be a good thing to do. 
+bundle update
+
+# Update just a spoecific gem to the latest available. Also might not be the best thing to do.
+bundle update [gemfile]
+
+# Update a specific gem to a specific version. Will update other dependencies if required. The most conservative approach. 
+bundle update [gemfile] [version]
+
+# More than one gem name can be passed through the update command. This will only update the two named gem files:
+bundle update rake rack
 ```
 
-Let this command run. All dependencies for the latest stable Jekyll release will be updated and the Gemfile.lock will be updated as well. Update any very old dependency versions in the Gemfile at your discretion. 
+More info and commands at [bundler.io](https://bundler.io/v2.0/man/bundle-update.1.html)
