@@ -8,6 +8,8 @@
   children:
     - title: "A11y Color Contrast"
       href: "functions/color-contrast"
+    - title: "High Contrast"
+      href: "functions/high-contrast"
 
 - title: "Oomph Mixins"
   href: "mixins"
