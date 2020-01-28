@@ -1,0 +1,189 @@
+// Examples for the A11y Color functions
+// http://jhogue.dev.oomphcloud.com/oomph-grey-matter/functions/color-contrast/
+
+// Colors to test with
+$fg-1: #0094c2; // 3.49 over white
+$fg-2: #E35B34; // 3.61 over white
+$bg-1: #fff;
+$bg-2: #f0f0f0;
+$bg-3: #ababab;
+
+
+.color {
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: sans-serif;
+
+  &__swatch {
+    padding: 1rem;
+    border: 0.5px solid #101010;
+    position: relative;
+  
+    &--fg1 {
+      background-color: $fg-1;
+      
+      &::after { content: ' #{$fg-1}'; }
+    }
+    
+    &--fg2 {
+      background-color: $fg-2;
+      
+      &::after { content: ' #{$fg-2}'; }
+    }
+    
+    &--bg1 {
+      background-color: $bg-1;
+      
+      &::after { content: ' #{$bg-1}'; }
+    }
+    
+    &--bg2 {
+      background-color: $bg-2;
+      
+      &::after { content: ' #{$bg-2}'; }
+    }
+    
+    &--bg3 {
+      background-color: $bg-3;
+      
+      &::after { content: ' #{$bg-3}'; }
+    }
+  }
+}
+
+.ally {
+  font-family: sans-serif;
+  
+  &__item {
+    padding: 1rem 2rem 1rem 1rem;
+    position: relative;
+    
+    p {
+      margin: 0;
+    }
+    
+    &::after {
+      font-size: 0.75rem;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      right: 0.5rem;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+
+.ally-fg1-bg1 {
+  background-color: $bg-1;
+  color: $fg-1;
+  
+  &::after {
+    content: '#{color-contrast($fg-1, $bg-1)}';
+  }
+}
+
+.pair-fg1-bg1 {
+  background-color: $bg-1;
+  $a11y-color: a11y-color($fg-1, $bg-1, 'AAA');
+  color: $a11y-color;
+  
+  &::after {
+    content: '#{color-contrast($a11y-color, $bg-1)}';
+  }
+}
+
+.ally-fg1-bg2 {
+  background-color: $bg-2;
+  color: $fg-1;
+  
+  &::after {
+    content: '#{color-contrast($fg-1, $bg-2)}';
+  }
+}
+
+.pair-fg1-bg2 {
+  background-color: $bg-2;
+  $a11y-color: a11y-color($fg-1, $bg-2, 'AA', 19, true);
+  color: $a11y-color;
+  
+  &::after {
+    content: '#{color-contrast($a11y-color, $bg-2)}';
+  }
+}
+
+.ally-fg1-bg3 {
+  background-color: $bg-3;
+  color: $fg-1;
+  
+  &::after {
+    content: '#{color-contrast($fg-1, $bg-3)}';
+  }
+}
+
+.pair-fg1-bg3 {
+  background-color: $bg-3;
+  $a11y-color: a11y-color($fg-1, $bg-3);
+  color: $a11y-color;
+  
+  &::after {
+    content: '#{color-contrast($a11y-color, $bg-3)}';
+  }
+}
+
+.ally-fg2-bg1 {
+  background-color: $bg-1;
+  color: $fg-2;
+  
+  &::after {
+    content: '#{color-contrast($fg-2, $bg-1)}';
+  }
+}
+
+.pair-fg2-bg1 {
+  background-color: $bg-1;
+  $a11y-color: a11y-color($fg-2, $bg-1);
+  color: $a11y-color;
+  
+  &::after {
+    content: '#{color-contrast($a11y-color, $bg-1)}';
+  }
+}
+
+.ally-fg2-bg2 {
+  background-color: $bg-2;
+  color: $fg-2;
+  
+  &::after {
+    content: '#{color-contrast($fg-2, $bg-2)}';
+  }
+}
+
+.pair-fg2-bg2 {
+  background-color: $bg-2;
+  $a11y-color: a11y-color($fg-2, $bg-2, 'AAA', 19, true);
+  color: $a11y-color;
+  
+  &::after {
+    content: '#{color-contrast($a11y-color, $bg-2)}';
+  }
+}
+
+.ally-fg2-bg3 {
+  background-color: $bg-3;
+  color: $fg-2;
+  
+  &::after {
+    content: '#{color-contrast($fg-2, $bg-3)}';
+  }
+}
+
+.pair-fg2-bg3 {
+  background-color: $bg-3;
+  $a11y-color: a11y-color($fg-2, $bg-3);
+  color: $a11y-color;
+  
+  &::after {
+    content: '#{color-contrast($a11y-color, $bg-3)}';
+  }
+}

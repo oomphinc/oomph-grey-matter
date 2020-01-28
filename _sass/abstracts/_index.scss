@@ -1,7 +1,8 @@
 // Import all Abstracts
 
 // Helpful functions and mixins for every project
-@import 'functions';
+@import 'functions/functions';
+@import 'functions/a11y-color';
 @import 'mixins/clamping';
 @import 'mixins/fluid-units';
 @import 'mixins/fluid-typography';

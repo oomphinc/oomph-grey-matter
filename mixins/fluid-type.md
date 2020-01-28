@@ -13,7 +13,7 @@ Oomph has a robust approach for Fluid — sometimes called Responsive — Typo
 
 A few files are responsible and required for Fluid Type. The [fluid-units]({{ site.baseurl }}mixins/fluid-units) mixin is leveraged for the `calc()` magic, so be sure to read about how that works first: 
 
-{% highlight SASS %}
+{% highlight Ruby %}
 -sass
 // There are four mixins in two files:
 -- abstracts
@@ -39,7 +39,7 @@ In `abstracts/project-vars/type-sizes.scss` declare our type sizes in a multi-di
 
 Map truncated below for legibility:
 
-{% highlight SASS %}
+{% highlight Ruby %}
 $type-sizes: (
   // 1.125 typographic scale base 15
   small: (
@@ -65,7 +65,8 @@ $type-sizes: (
 
 #### TWO: Set the Mobile Sizes
 In `abstracts/bs4-vars/bs4-typography.scss` declare the mobile values using the `one-type-size` mixin. REMs are default, but the mixin accepts a `$breakpoint` (the first one is the default) and a `$unit` if needed:
-{% highlight SASS %}
+
+{% highlight Ruby %}
 // one-type-size($element, $breakpoint: null, $unit: 1rem)
 $h1-font-size: one-type-size('h1');
 $h2-font-size: one-type-size('h2');
@@ -78,9 +79,9 @@ Those variables are used by Bootstrap to set the default font-size for each head
 #### THREE: Set the Responsive Sizes
 Then, in `sass/base/typography.scss` we declare sizes again, but this time output just the media-query portion of the Fluid-Units concept with the `fluid-type-sizes` mixin. 
 
-A `` boolean flag is set to `true` by default, but if we set it to `false`, we get the entire output including the mobile sizes: 
+A boolean flag is set to `true` by default, but if we set it to `false`, we get the entire output including the mobile sizes: 
 
-{% highlight SASS %}
+{% highlight Ruby %}
 // fluid-type-sizes($element, : true)
 p {
   @include fluid-type-sizes('base', false);
@@ -103,7 +104,7 @@ h3,
 // etc...
 {% endhighlight %}
 
-This gives us the responsive fluidity that we want. Example output for the `base` and `h1` elements should result in this: 
+This gives us the responsive fluidity that we want. Example output for the `p` and `h1` elements should result in this: 
 
 {% highlight CSS %}
 /* This one has the mobile value because we set the  flag to "false" */
@@ -120,7 +121,7 @@ p {
     font-size: 1.1875rem;
   }
 }
-/* Notice we do not see the mobile size here because we set the  flag to default ("true") */
+/* Notice we do not see the mobile size here because we set the flag to default ("true") */
 @media (min-width: 38.75rem) {
   h1, .h1 {
     font-size: calc(1.5rem + (2.6875 - 1.5) * ((100vw - 38.75rem) / 36.25));

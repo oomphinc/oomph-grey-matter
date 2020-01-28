@@ -1,7 +1,7 @@
 title: Oomph Grey Matter
 description: A wireframe system for quick HTML/SASS prototypes
   
-markdown: kramdown
+markdown: redcarpet
 highlighter: pygments
 
 baseurl: '/oomph-grey-matter/'

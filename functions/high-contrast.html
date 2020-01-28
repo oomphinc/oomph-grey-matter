@@ -1,0 +1,38 @@
+---
+layout: text
+title: "High Contrast Function"
+nav-title: High Contrast
+permalink: functions/high-contrast/
+body-class: functions
+---
+
+<h2>Usage</h2>
+<p>A small function that takes a valid color parameter and returns either a black or white color, whichever will be the most legible. A global white or black value is declared if a particular theme does not have one of its own.</p>
+
+<pre><code>$white: #fff !default;
+$black: #101010 !default;
+
+@function high-contrast-color($color) {
+  <em class="text-success">// Is this color light or darK?</em>
+  $color-lod: light-or-dark($color);
+
+  @if ($color-lod == "dark") {
+    @return $white;
+  } @else {
+    @return $black;
+  }
+}
+<em class="text-success">// Usage:</em>
+.example {
+  $color: #0094c2;
+  background-color: $color;
+  color: high-contrast-color($color)
+}
+<em class="text-success">// Output:</em>
+.example {
+  background-color: #0094c2;
+  color: #101010;
+}
+</code></pre>
+
+<p>This function is located in the <code>a11y-color.scss</code> file along with <a href="{{ site.baseurl }}functions/color-contrast/">the <code>a11y-color()</code> functions</a>. </p>

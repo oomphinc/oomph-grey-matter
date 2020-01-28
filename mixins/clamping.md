@@ -8,7 +8,7 @@ body-class: mixins
 
 What the heck is _clamping_? When a single line of text’s character display is restricted, that’s called “line-clamping” — as in, we are clamping/restricting its displayed length by the width of its container (or something else). 
 
-{% highlight SASS %}
+{% highlight Ruby %}
 -sass
 -- abstracts
 --- mixins
@@ -34,7 +34,7 @@ the container will “clamp” the number of visible characters.</p>
 ```
 
 #### Usage:
-{% highlight SASS %}
+{% highlight Ruby %}
 // Where 100% is the width. A calc() value would be acceptable as well, depending on the use case
 .u-single-line-clamp {
   @include single-line-clamp(100%);
@@ -67,7 +67,7 @@ container height.</p>
 **Note**: This is done is a cheesy way, CSS-only. For better results, you may want to rely on a JS solution. [CSS-Tricks has an in-depth article about the various solutions in the wild](https://css-tricks.com/line-clampin/). 
 
 #### Usage:
-{% highlight SASS %}
+{% highlight Ruby %}
 // Where 2 is the number of lines we want to clamp to and
 // the crazy string is a way of grabbing the font-size of .lead
 // $font-size defaults to BS4's $font-size-base and

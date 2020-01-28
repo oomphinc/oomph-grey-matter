@@ -3,6 +3,14 @@
 - title: "Intro"
   href: "/"
 
+- title: "Oomph Functions"
+  href: "functions"
+  children:
+    - title: "A11y Color Contrast"
+      href: "functions/color-contrast"
+    - title: "High Contrast"
+      href: "functions/high-contrast"
+
 - title: "Oomph Mixins"
   href: "mixins"
   children:
@@ -14,12 +22,18 @@
       href: "mixins/fluid-type"
     - title: "Brower Hacks"
       href: "mixins/hacks"
+    - title: "Show Hide"
+      href: "mixins/show-hide"
 
-- title: "BS4 Grid"
-  href: "grid"
+- title: "Sample HTML"
+  href: "mixins"
+  children:
+    - title: "BS4 Grid"
+      href: "html/grid"
+    - title: "All HTML"
+      href: "html/sample-html"
+    - title: "Vertical Rhythm"
+      href: "html/sample-rhythm"
 
-- title: "All HTML"
-  href: "sample-html"
-
-- title: "Vertical Rhythm"
-  href: "sample-rhythm"
+- title: "GitHub"
+  href: "https://github.com/oomphinc/oomph-grey-matter"
