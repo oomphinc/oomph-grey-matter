@@ -1,3 +1,6 @@
+// Examples for the A11y Color functions
+// http://jhogue.dev.oomphcloud.com/oomph-grey-matter/functions/color-contrast/
+
 // Colors to test with
 $fg-1: #0094c2; // 3.49 over white
 $fg-2: #E35B34; // 3.61 over white
@@ -12,7 +15,7 @@ $bg-3: #ababab;
   font-family: sans-serif;
 
   &__swatch {
-    padding: 2rem;
+    padding: 1rem;
     border: 0.5px solid #101010;
     position: relative;
   
