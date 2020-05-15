@@ -20,7 +20,7 @@
       href: "mixins/fluid-units"
     - title: "Fluid Typography"
       href: "mixins/fluid-type"
-    - title: "Brower Hacks"
+    - title: "Browser Hacks"
       href: "mixins/hacks"
     - title: "Show Hide"
       href: "mixins/show-hide"
